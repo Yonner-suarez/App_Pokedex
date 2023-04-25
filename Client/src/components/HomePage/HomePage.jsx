@@ -1,11 +1,16 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Cards from "../cards/Cards";
-import { getPokemons, order } from "../../Redux/action";
+import {
+  filterPokemons,
+  getPokemons,
+  order,
+  getTypes,
+} from "../../Redux/action";
 import Paginado from "../Paginado/Paginado";
 
 const HomePage = () => {
-  const { pokemonsAll, numPage } = useSelector((state) => state);
+  const { pokemonsAll, numPage, types } = useSelector((state) => state);
 
   let inicio = (numPage - 1) * 12,
     hasta = numPage * 12;
@@ -26,6 +31,12 @@ const HomePage = () => {
     dispatch(order(value));
   };
 
+  const selectFilter = (event) => {
+    event.preventDefault();
+
+    dispatch(filterPokemons(event.target.value));
+  };
+
   return (
     <div>
       <h1>Here your Pokedex</h1>
@@ -36,15 +47,15 @@ const HomePage = () => {
         <option value="Ascendente">Ascendente</option>
         <option value="Descendente">Descendente</option>
       </select>
-      <select name="filter" defaultValue={"DEFAULT"}>
+      <select name="filter" defaultValue={"DEFAULT"} onChange={selectFilter}>
         <option value="DEFAULT" disable="true">
           Select Filter
         </option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-        <option value="Genderless">Genderless</option>
-        <option value="unknown">unknown</option>
+        {types.map((tipo) => {
+          return <option value={tipo.name}>{tipo.name}</option>;
+        })}
       </select>
+
       <Cards allPokemons={viewPokemons} />
       <Paginado catidadPages={catidadPages} />
     </div>

@@ -1,10 +1,17 @@
-import { GET_ALL_POKEMONS, NEXT_PAGE, GET_TYPES, ORDER } from "./action";
+import {
+  GET_ALL_POKEMONS,
+  NEXT_PAGE,
+  GET_TYPES,
+  ORDER,
+  FILTER,
+} from "./action";
 
 const initialState = {
   pokemonsAll: [],
   orderPok: [],
   types: [],
   numPage: 1,
+  filterPok: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -38,6 +45,13 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonsAll: newOrder,
+      };
+    case FILTER:
+      return {
+        ...state,
+        filterPok: state.pokemonsAll.filter(
+          (pokemons) => pokemons.tipo == action.payload
+        ),
       };
     default:
       return {

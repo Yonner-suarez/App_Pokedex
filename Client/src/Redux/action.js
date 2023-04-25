@@ -4,6 +4,7 @@ export const GET_ALL_POKEMONS = " GET_ALL_POKEMONS";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const GET_TYPES = "GET_TYPES";
 export const ORDER = "ORDER";
+export const FILTER = "FILTER";
 
 export const getPokemons = () => {
   try {
@@ -46,5 +47,12 @@ export const order = (orden) => {
   return {
     type: ORDER,
     payload: orden,
+  };
+};
+
+export const filterPokemons = (idFiltro) => {
+  return {
+    type: FILTER,
+    payload: idFiltro,
   };
 };

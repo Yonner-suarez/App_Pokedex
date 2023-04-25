@@ -2,52 +2,19 @@ const axios = require("axios");
 require("dotenv").config();
 const { Type } = require("../db");
 
-const { URL } = process.env;
-const getTypes = (req, res) => {
-  let soloType = new Set();
-  let urls;
-  let array = [];
+const getTypes = async (req, res) => {
+  try {
+    const resp = await axios.get(`https://pokeapi.co/api/v2/type`);
 
-  axios
-    .get(`${URL}/type`)
-    .then((res) => {
-      urls = res.data.results.map((dat) => dat.url);
-      return urls;
-    })
-
-    .then((urls) => {
-      axios.all(urls.map((url) => axios.get(url))).then(async (resp) => {
-        let aux = resp.map((data) => data);
-        aux.forEach((obj) => {
-          const { data } = obj;
-          const { types } = data;
-          types.map((tipo) => {
-            const { name } = tipo.type;
-            soloType.add(name);
-          });
-        });
-        soloType.forEach((nam) => {
-          let obj = {
-            name: nam,
-          };
-          array.push(obj);
-        });
-
-        res.status(200).json(array);
-
-        for (const namesType of array) {
-          const busca = await Type.findOne({ where: { name: namesType.name } });
-
-          if (busca) {
-            return res.status(200).json(await Type.findAll());
-          }
-          await Type.create({ name: namesType.name });
-        }
-      });
-    })
-    .catch((error) => {
-      res.status(404).json({ error: error.message });
-    });
+    for (tipo of resp.data.results) {
+      const existe = await Type.findOne({ where: { name: tipo.name } });
+      if (existe) return res.json(await Type.findAll());
+      await Type.create({ name: tipo.name });
+    }
+    res.status(200).json(await Type.findAll());
+  } catch (error) {
+    res.status(404).json({ error: error.message });
+  }
 };
 module.exports = getTypes;
 

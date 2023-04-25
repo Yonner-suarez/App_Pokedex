@@ -1,10 +1,7 @@
-import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { getTypes } from "../../Redux/action";
+import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Form = ({ postPok }) => {
-  const dispatch = useDispatch();
-
   const { types } = useSelector((state) => state);
 
   const [newPok, setNewPok] = useState({
@@ -19,10 +16,6 @@ const Form = ({ postPok }) => {
     tipo: [],
   });
 
-  useEffect(() => {
-    dispatch(getTypes());
-  }, []);
-
   const handleOnChange = (event) => {
     const key = event.target.name,
       value = event.target.value;
@@ -31,6 +24,21 @@ const Form = ({ postPok }) => {
       ...newPok,
       [key]: value,
     });
+  };
+
+  const onCheck = (event) => {
+    if (newPok.tipo.includes(event.target.value)) {
+      newPok.tipo = newPok.tipo.filter((id) => id !== event.target.value);
+      setNewPok({
+        ...newPok,
+        tipo: newPok.tipo,
+      });
+    } else {
+      setNewPok({
+        ...newPok,
+        tipo: [...newPok.tipo, event.target.value],
+      });
+    }
   };
 
   const handleSubmit = (event) => {
@@ -128,26 +136,11 @@ const Form = ({ postPok }) => {
         <br />
         <span></span>
       </label>
-
-      <div>
-        {types.map((tipo) => {
-          return (
-            <div>
-              <input
-                type="checkbox"
-                name={newPok.tipo}
-                onChange={handleOnChange}
-              />
-              <span value={tipo.name}>{tipo.name}</span>
-            </div>
-          );
-        })}
-      </div>
-
       <br />
       <br />
       <label>
         <span>Link Image:</span>
+        {console.log(types)}
         <input
           type="text"
           name="image"
@@ -159,6 +152,22 @@ const Form = ({ postPok }) => {
       </label>
       <br />
       <br />
+      <div>
+        {types.map((tipo) => {
+          return (
+            <div>
+              <input
+                type="checkbox"
+                name={tipo.name}
+                value={tipo.id}
+                id={tipo.id}
+                onChange={onCheck}
+              />
+              <span value={tipo.name}>{tipo.name}</span>
+            </div>
+          );
+        })}
+      </div>
       <button type="submit">Create</button>
     </form>
   );
