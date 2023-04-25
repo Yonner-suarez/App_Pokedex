@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { Pokemon } = require("../db");
 require("dotenv").config();
 
 const { URL } = process.env;
@@ -9,35 +10,32 @@ const getPokemons = (req, res) => {
 
   if (!name) {
     let urls;
-    let promises;
-
     axios
       .get(`${URL}?limit=10`)
       .then((res) => {
         urls = res.data.results.map((dat) => dat.url);
         return urls;
       })
-      .then((res) => {
-        promises = res.map((url) => axios.get(url));
-        return promises;
-      })
-      .then((promisesP) => {
-        Promise.all(promisesP).then((resp) => {
-          resp.forEach((resp) => {
-            allPok.push({
-              id: resp.data.id,
-              name: resp.data.name,
-              image: resp.data.sprites.other.dream_world.front_default,
-              vida: resp.data.stats[0]?.base_stat,
-              ataque: resp.data.stats[1]?.base_stat,
-              defensa: resp.data.stats[2]?.base_stat,
-              velocidad: resp.data.base_experience,
-              altura: resp.data.height,
-              peso: resp.data.weight,
-              tipo: resp.data.types[0]?.type.name,
-            });
+      .then((resp) => {
+        axios.all(resp.map((url) => axios.get(url))).then(async (respuesta) => {
+          let aux = respuesta.map((data) => data);
+          aux.forEach((obj) => {
+            const pok = {
+              id: obj.data.id,
+              name: obj.data.name,
+              image: obj.data.sprites.other.dream_world.front_default,
+              vida: obj.data.stats[0]?.base_stat,
+              ataque: obj.data.stats[1]?.base_stat,
+              defensa: obj.data.stats[2]?.base_stat,
+              velocidad: obj.data.base_experience,
+              altura: obj.data.height,
+              peso: obj.data.weight,
+              tipo: obj.data.types[0]?.type.name,
+            };
+            allPok.push(pok);
           });
           res.status(200).json(allPok);
+          //await Pokemon.bulkCreate(allPok);
         });
       })
       .catch((error) => {
@@ -94,4 +92,31 @@ module.exports = getPokemons;
     *let vitafull = [vit[2], vita[2]];
 *2OPCION= resp.data.stats[2].base_stat
 ! velocidad =resp.data.base_experience
+*/
+
+/*
+  .then((res) => {
+        promises = res.map((url) => axios.get(url));
+        return promises;
+      })
+      .then((promisesP) => {
+        Promise.all(promisesP).then((resp) => {
+          resp.forEach((resp) => {
+            allPok.push({
+              id: resp.data.id,
+              name: resp.data.name,
+              image: resp.data.sprites.other.dream_world.front_default,
+              vida: resp.data.stats[0]?.base_stat,
+              ataque: resp.data.stats[1]?.base_stat,
+              defensa: resp.data.stats[2]?.base_stat,
+              velocidad: resp.data.base_experience,
+              altura: resp.data.height,
+              peso: resp.data.weight,
+              tipo: resp.data.types[0]?.type.name,
+            });
+          });
+          res.status(200).json(allPok);
+      });
+      })
+!!!! con promise.all()
 */
