@@ -10,6 +10,8 @@ const getPokemons = (req, res) => {
 
   if (!name) {
     let urls;
+    let fullPok;
+    let pok;
     axios
       .get(`${URL}?limit=10`)
       .then((res) => {
@@ -19,8 +21,8 @@ const getPokemons = (req, res) => {
       .then((resp) => {
         axios.all(resp.map((url) => axios.get(url))).then(async (respuesta) => {
           let aux = respuesta.map((data) => data);
-          aux.forEach((obj) => {
-            const pok = {
+          const newAux = aux.map((obj) => {
+            pok = {
               id: obj.data.id,
               name: obj.data.name,
               image: obj.data.sprites.other.dream_world.front_default,
@@ -32,8 +34,9 @@ const getPokemons = (req, res) => {
               peso: obj.data.weight,
               tipo: obj.data.types[0]?.type.name,
             };
-            allPok.push(pok);
+            return pok;
           });
+          console.log(newAux);
 
           const dbPok = await Pokemon.findAll({
             include: {
@@ -45,8 +48,7 @@ const getPokemons = (req, res) => {
             },
           });
 
-          let fullPok = [...dbPok, ...allPok];
-
+          fullPok = [...dbPok, ...newAux];
           res.status(200).json(fullPok);
           //await Pokemon.bulkCreate(allPok);
         });
