@@ -9,7 +9,7 @@ const getTypes = (req, res) => {
   let array = [];
 
   axios
-    .get(`${URL}?limit=10`)
+    .get(`${URL}/type`)
     .then((res) => {
       urls = res.data.results.map((dat) => dat.url);
       return urls;

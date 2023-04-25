@@ -1,6 +1,12 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { getTypes } from "../../Redux/action";
 
 const Form = ({ postPok }) => {
+  const dispatch = useDispatch();
+
+  const { types } = useSelector((state) => state);
+
   const [newPok, setNewPok] = useState({
     name: "",
     image: "",
@@ -12,6 +18,10 @@ const Form = ({ postPok }) => {
     peso: 0,
     tipo: [],
   });
+
+  useEffect(() => {
+    dispatch(getTypes());
+  }, []);
 
   const handleOnChange = (event) => {
     const key = event.target.name,
@@ -118,20 +128,22 @@ const Form = ({ postPok }) => {
         <br />
         <span></span>
       </label>
-      <label>
-        <span>Tipos:</span>
-        <input
-          type="text"
-          name="tipo"
-          value={newPok.tipo}
-          onChange={handleOnChange}
-        />
-        <select name="tipo" value={newPok.tipo}>
-          <option name=""></option>
-        </select>
-        <br />
-        <span></span>
-      </label>
+
+      <div>
+        {types.map((tipo) => {
+          return (
+            <div>
+              <input
+                type="checkbox"
+                name={newPok.tipo}
+                onChange={handleOnChange}
+              />
+              <span value={tipo.name}>{tipo.name}</span>
+            </div>
+          );
+        })}
+      </div>
+
       <br />
       <br />
       <label>

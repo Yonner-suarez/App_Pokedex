@@ -36,7 +36,6 @@ const getPokemons = (req, res) => {
             };
             return pok;
           });
-          console.log(newAux);
 
           const dbPok = await Pokemon.findAll({
             include: {
