@@ -1,7 +1,9 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import axios from "axios";
+import Cards from "../cards/Cards";
 import { Link } from "react-router-dom";
+
 const HomePage = () => {
   const [allPokemons, setAllPokemons] = useState([]);
 
@@ -21,17 +23,7 @@ const HomePage = () => {
   return (
     <div>
       <h1>Aqui las cartas</h1>
-      {allPokemons.map((pok) => {
-        return (
-          <Link to={`/detailPokemon/${pok.id}`}>
-            <div>
-              <h2>Name: {pok.name}</h2>
-              <img src={pok?.image} alt={pok.name} />
-              <h2>Tipos: {pok.tipo}</h2>
-            </div>
-          </Link>
-        );
-      })}
+      <Cards allPokemons={allPokemons} />
     </div>
   );
 };

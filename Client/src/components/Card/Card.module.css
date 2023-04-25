@@ -1,0 +1,37 @@
+/* .boton:hover {
+  background-color: #fff;
+} */
+.contenedor {
+  background-color: transparent;
+  border: 2px solid black;
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+  padding-left: 0;
+}
+
+.img {
+  height: 60%;
+  width: 60%;
+  cursor: pointer;
+  background-position: center;
+}
+.img:hover {
+  transform: scale(1.1);
+  transition: 0.5s;
+}
+h3 {
+  color: #000;
+  font-size: 20px;
+  font-family: "Chiller";
+  text-decoration: none;
+}
+.link {
+  text-decoration: none;
+}
+.links {
+  font-family: "Chiller";
+  color: #000;
+}

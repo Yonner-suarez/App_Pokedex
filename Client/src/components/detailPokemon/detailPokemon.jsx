@@ -35,12 +35,12 @@ const DetailPokemmon = () => {
           <img src={detailPok.image} alt={detailPok.name} />
           {/* !! el signo de ? es muy
       importante para leer la info  */}
+          {detailPok.tipo.map((tip) => {
+            const { name } = tip.type;
+            return <h2>{name}</h2>;
+          })}
         </div>
       ) : null}
-
-      {detailPok.tipo.map((tip) => {
-        return <h2>{tip.name}</h2>;
-      })}
     </div>
   );
 };
