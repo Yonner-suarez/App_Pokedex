@@ -42,6 +42,9 @@ module.exports = (sequelize) => {
       peso: {
         type: DataTypes.INTEGER,
       },
+      tipo: {
+        type: DataTypes.ARRAY(DataTypes.DECIMAL()),
+      },
     },
     {
       timestamps: false,

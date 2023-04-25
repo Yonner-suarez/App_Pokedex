@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon } = require("../db");
+const { Pokemon, Type } = require("../db");
 require("dotenv").config();
 
 const { URL } = process.env;
@@ -34,7 +34,20 @@ const getPokemons = (req, res) => {
             };
             allPok.push(pok);
           });
-          res.status(200).json(allPok);
+
+          const dbPok = await Pokemon.findAll({
+            include: {
+              model: Type,
+              attributes: ["name"],
+              through: {
+                attributes: [],
+              },
+            },
+          });
+
+          let fullPok = [...dbPok, ...allPok];
+
+          res.status(200).json(fullPok);
           //await Pokemon.bulkCreate(allPok);
         });
       })
