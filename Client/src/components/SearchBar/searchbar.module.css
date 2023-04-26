@@ -14,8 +14,7 @@
   position: relative;
   display: flex;
   flex-direction: row;
-  padding: 15px 80px;
-  letter-spacing: 0.5px;
+  padding: 0 80px;
   font-size: 15px;
   font-family: cursive;
   background-color: transparent;
@@ -23,7 +22,7 @@
   /* left: 270px; */
 }
 ::placeholder {
-  color: #0f0;
+  color: white;
 }
 .input:hover {
   background: rgba(0, 229, 255, 0.248);

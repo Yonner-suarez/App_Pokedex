@@ -1,3 +1,4 @@
+import style from "./form.module.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 
@@ -47,129 +48,154 @@ const Form = ({ postPok }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <br />
-      <br />
-      <div>
-        {/* <img
-          src="https://1000marken.net/wp-content/uploads/2021/01/Pokemon-logo.svg"
+    <div className={style.formulario}>
+      <div className={style.contenedorImg}>
+        <h2>Here you can create your Pokemon</h2>
+        <img
+          src="https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
           alt=""
-        /> */}
+          className={style.img}
+        />
       </div>
-      <p>Here you can create your Pokemon</p>
-      <br />
-      <br />
-      <label>
-        <span>Name:</span>
-        <input
-          type="text"
-          name="name"
-          value={newPok.name}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label>
-        <span>vida:</span>
-        <input
-          type="text"
-          name="vida"
-          value={newPok.vida}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label>
-        <span>Ataque:</span>
-        <input
-          type="text"
-          name="ataque"
-          value={newPok.ataque}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label>
-        <span>Defensa:</span>
-        <input
-          type="text"
-          name="defensa"
-          value={newPok.velocidad}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label htmlFor="">
-        <span>Velocidad:</span>
-        <input
-          type="text"
-          name="velocidad"
-          value={newPok.velocidad}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label htmlFor="">
-        <span>Altura:</span>
-        <input
-          type="text"
-          name="altura"
-          value={newPok.altura}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <label>
-        <span>Peso:</span>
-        <input
-          type="text"
-          name="peso"
-          value={newPok.peso}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <br />
-      <br />
-      <label>
-        <span>Link Image:</span>
-        {console.log(types)}
-        <input
-          type="text"
-          name="image"
-          value={newPok.image}
-          onChange={handleOnChange}
-        />
-        <br />
-        <span></span>
-      </label>
-      <br />
-      <br />
-      <div>
-        {types.map((tipo) => {
-          return (
-            <div>
-              <input
-                type="checkbox"
-                name={tipo.name}
-                value={tipo.id}
-                id={tipo.id}
-                onChange={onCheck}
-              />
-              <span value={tipo.name}>{tipo.name}</span>
-            </div>
-          );
-        })}
-      </div>
-      <button type="submit">Create</button>
-    </form>
+      <form onSubmit={handleSubmit} className={style.form}>
+        <h2>Let´s Go</h2>
+        <label>
+          <span className={style.span}>Name: </span>
+
+          <input
+            type="text"
+            name="name"
+            value={newPok.name}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label>
+          <span className={style.span}>vida: </span>
+
+          <input
+            type="text"
+            name="vida"
+            value={newPok.vida}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label>
+          <span className={style.span}>Ataque:</span>
+
+          <input
+            type="text"
+            name="ataque"
+            value={newPok.ataque}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label>
+          <span className={style.span}>Defensa:</span>
+
+          <input
+            type="text"
+            name="defensa"
+            value={newPok.velocidad}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label htmlFor="">
+          <span className={style.span}>Velocidad:</span>
+
+          <input
+            type="text"
+            name="velocidad"
+            value={newPok.velocidad}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label htmlFor="">
+          <span className={style.span}>Altura:</span>
+
+          <input
+            type="text"
+            name="altura"
+            value={newPok.altura}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+        <label>
+          <span className={style.span}> Peso: </span>
+
+          <input
+            type="text"
+            name="peso"
+            value={newPok.peso}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+
+        <label>
+          <span className={style.span}>Link Image:</span>
+
+          {console.log(types)}
+          <input
+            type="text"
+            name="image"
+            value={newPok.image}
+            onChange={handleOnChange}
+            className={style.input}
+          />
+          <br />
+          <span></span>
+          <br />
+        </label>
+
+        <div className={style.checkbox}>
+          <h5>Tipos</h5>
+          {types.map((tipo) => {
+            return (
+              <div className={style.checkbox1}>
+                <input
+                  type="checkbox"
+                  name={tipo.name}
+                  value={tipo.id}
+                  id={tipo.id}
+                  onChange={onCheck}
+                />
+                <span value={tipo.name}>{tipo.name}</span>
+              </div>
+            );
+          })}
+        </div>
+        <button type="submit" className={style.boton}>
+          Create
+        </button>
+      </form>
+    </div>
   );
 };
 export default Form;

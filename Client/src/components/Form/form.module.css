@@ -1,0 +1,94 @@
+.formulario {
+  width: 1000px;
+  height: 700px;
+  border: 2px solid white;
+  background-color: rgba(0, 229, 255, 0.522);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-left: 250px;
+}
+.checkbox1 {
+  display: inline-flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+}
+.checkbox {
+  background-color: rgba(9, 199, 220, 0.654);
+  display: inline-flexbox;
+  width: 500px;
+  height: 90px;
+}
+.contenedorImg {
+  background-color: transparent;
+  width: 350px;
+}
+.img {
+  width: 350px;
+  height: 400px;
+  margin-right: 5em;
+}
+.img:hover {
+  background: rgba(0, 229, 255, 0.248);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
+    0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
+  transition-delay: 0.25s;
+}
+
+h2 {
+  background-color: transparent;
+  font-family: cursive;
+  font-size: xx-large;
+}
+.form {
+  margin-left: 80px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+}
+
+.form .span {
+  color: white;
+  margin-right: 10px;
+  font-family: cursive;
+  font-size: larger;
+  width: auto;
+}
+.form .input {
+  height: 25px;
+  border-radius: 10px;
+  background-color: transparent;
+  border: 2px solid black;
+  width: 300px;
+  float: right;
+}
+h5 {
+  margin: 0;
+}
+.boton {
+  display: inline;
+  padding: 15px 30px;
+  color: #fff;
+  background-color: rgba(0, 229, 255, 0.248);
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  font-family: cursive;
+  border: none;
+  cursor: pointer;
+  margin: 0.4em;
+}
+.boton:hover {
+  background: rgba(0, 229, 255, 0.248);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
+    0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
+  transition-delay: 0.25s;
+}

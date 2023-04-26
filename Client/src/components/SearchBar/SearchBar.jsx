@@ -20,9 +20,10 @@ const SearchBar = ({ onSearch }) => {
         type="search"
         value={busca}
         className={style.input}
+        placeholder="Name or Id of your Pokemon"
       />
       <button onClick={submit} className={style.boton}>
-        buscar
+        Search
       </button>
     </div>
   );
