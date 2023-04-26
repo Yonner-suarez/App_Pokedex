@@ -1,0 +1,13 @@
+.next {
+  background-color: rgba(0, 229, 255, 0.248);
+  width: 120px;
+  height: 50px;
+  border-radius: 5px;
+  display: inline;
+  margin: 1em;
+  color: aliceblue;
+  font-size: 18px;
+}
+.next:hover {
+  background-color: rgba(0, 229, 255, 0.714);
+}

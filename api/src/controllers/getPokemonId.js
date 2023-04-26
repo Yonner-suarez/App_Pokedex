@@ -10,7 +10,9 @@ const getPokemonsId = async (req, res) => {
   try {
     const pokemon = await Pokemon.findByPk(idPokemon);
     if (pokemon !== null) {
-      const pokemonId = await axios.get(`${URL}/${idPokemon}`);
+      const pokemonId = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
+      );
       const pok = {
         id: pokemonId.data.id,
         name: pokemonId.data.name,
@@ -24,8 +26,11 @@ const getPokemonsId = async (req, res) => {
         tipo: pokemonId.data.types,
       };
       res.status(200).json({ res: pok, pokemon });
+      console.log(pok);
     } else {
-      const pokemonId = await axios.get(`${URL}/${idPokemon}`);
+      const pokemonId = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
+      );
       const pok = {
         id: pokemonId.data.id,
         name: pokemonId.data.name,

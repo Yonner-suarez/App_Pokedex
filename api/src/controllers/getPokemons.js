@@ -4,7 +4,6 @@ require("dotenv").config();
 
 const { URL } = process.env;
 
-const allPok = [];
 const getPokemons = (req, res) => {
   const { name } = req.query;
 
@@ -59,7 +58,7 @@ const getPokemons = (req, res) => {
     const nameToLOwerCase = name.toLowerCase();
 
     axios
-      .get(`${URL}/${nameToLOwerCase}`)
+      .get(`https://pokeapi.co/api/v2/pokemon/${nameToLOwerCase}`)
       .then((resp) => {
         const pokemonName = {
           id: resp.data.id,
@@ -74,7 +73,7 @@ const getPokemons = (req, res) => {
           tipo: resp.data.types[0]?.type.name,
         };
 
-        res.status(200).json(pokemonName);
+        res.status(200).json([pokemonName]);
       })
       .catch((err) => {
         res.status(404).json({ error: err.message });

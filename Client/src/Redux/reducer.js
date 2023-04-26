@@ -4,14 +4,17 @@ import {
   GET_TYPES,
   ORDER,
   FILTER,
+  RESET,
+  SEARCH_POK,
 } from "./action";
 
 const initialState = {
   pokemonsAll: [],
+  copyPokemonsAll: [],
   orderPok: [],
   types: [],
   numPage: 1,
-  filterPok: [],
+  search: [],
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -20,6 +23,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonsAll: action.payload,
+        copyPokemonsAll: action.payload,
       };
 
     case NEXT_PAGE:
@@ -42,16 +46,37 @@ const rootReducer = (state = initialState, action) => {
         }
         return 0;
       });
+      const newOrder1 = state.copyPokemonsAll.sort((a, b) => {
+        if (a.id > b.id) {
+          return "Ascendente" === action.payload ? 1 : -1;
+        }
+        if (a.id < b.id) {
+          return "Descendente" === action.payload ? 1 : -1;
+        }
+        return 0;
+      });
       return {
         ...state,
         pokemonsAll: newOrder,
+        copyPokemonsAll: newOrder1,
       };
     case FILTER:
+      const newFilter = state.pokemonsAll.filter(
+        (pokemons) => pokemons.tipo == action.payload
+      );
       return {
         ...state,
-        filterPok: state.pokemonsAll.filter(
-          (pokemons) => pokemons.tipo == action.payload
-        ),
+        copyPokemonsAll: newFilter,
+      };
+    case RESET:
+      return {
+        ...state,
+        copyPokemonsAll: state.pokemonsAll,
+      };
+    case SEARCH_POK:
+      return {
+        ...state,
+        search: [action.payload],
       };
     default:
       return {

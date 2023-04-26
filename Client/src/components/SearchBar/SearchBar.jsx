@@ -1,8 +1,29 @@
-const SearchBar = () => {
+import style from "./searchbar.module.css";
+import { useState } from "react";
+import { useSelector } from "react-redux";
+
+const SearchBar = ({ onSearch }) => {
+  const [busca, setBusca] = useState("");
+  const { pokemonsAll } = useSelector((state) => state);
+
+  const handleC = (event) => {
+    setBusca(event.target.value);
+  };
+  const submit = () => {
+    onSearch(busca);
+  };
+
   return (
-    <div>
-      <input type="text" />
-      <button>buscar</button>
+    <div className={style.contenedor}>
+      <input
+        onChange={handleC}
+        type="search"
+        value={busca}
+        className={style.input}
+      />
+      <button onClick={submit} className={style.boton}>
+        buscar
+      </button>
     </div>
   );
 };

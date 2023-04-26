@@ -1,0 +1,12 @@
+.contenedor {
+  margin-top: 100px;
+}
+.boton {
+  margin-top: 400px;
+  width: 90px;
+  height: 100px;
+}
+
+.boton:hover {
+  pointer-events: visible;
+}

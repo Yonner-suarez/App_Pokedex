@@ -1,3 +1,4 @@
+import style from "./paginado.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nextPage } from "../../Redux/action";
 
@@ -10,7 +11,9 @@ const Paginado = () => {
 
   return (
     <footer>
-      <button onClick={next}>Next</button>
+      <button onClick={next} className={style.next}>
+        Next
+      </button>
     </footer>
   );
 };

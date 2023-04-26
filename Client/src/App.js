@@ -1,6 +1,5 @@
 import "./App.css";
 import Form from "./components/Form/form";
-
 import DetailPokemmon from "./components/detailPokemon/detailPokemon";
 import LandingPage from "./components/landingPage/landingPage";
 import NavBar from "./components/NavBar/NavBar";
@@ -27,6 +26,8 @@ function App() {
     const { data } = res;
     console.log(data);
   };
+
+  
 
   const { pathname } = useLocation();
   return (

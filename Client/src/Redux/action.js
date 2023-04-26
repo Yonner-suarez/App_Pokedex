@@ -5,6 +5,8 @@ export const NEXT_PAGE = "NEXT_PAGE";
 export const GET_TYPES = "GET_TYPES";
 export const ORDER = "ORDER";
 export const FILTER = "FILTER";
+export const RESET = "RESET";
+export const SEARCH_POK = 'SEARCH_POK';
 
 export const getPokemons = () => {
   try {
@@ -54,5 +56,19 @@ export const filterPokemons = (idFiltro) => {
   return {
     type: FILTER,
     payload: idFiltro,
+  };
+};
+
+export const reset = () => {
+  return {
+    type: RESET,
+  };
+};
+
+
+export const search = (pokemonsFinded) => {
+  return {
+    type: SEARCH_POK,
+    payload: pokemonsFinded,
   };
 };
