@@ -1,3 +1,4 @@
+import style from "./detail.module.css";
 import { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -20,27 +21,32 @@ const DetailPokemmon = () => {
   }, [id]);
 
   return (
-    <div>
+    <div className={style.contenedor}>
       {detailPok.name ? (
-        <div>
-          <h1>NAME |{detailPok.name}</h1>
-          <h2>ID |{detailPok.id}</h2>
-          <h2>VIDA |{detailPok.vida}</h2>
-          <h2>ATAQUE |{detailPok.ataque}</h2>
-          <h2>DEFENSA |{detailPok.defensa}</h2>
-          <h2>VELOCIDAD |{detailPok.velocidad}</h2>
-          <h2>ALTURA |{detailPok.altura}</h2>
-          <h2>PESO |{detailPok.peso}</h2>
+        <div className={style.contenedor1}>
+          <h4>ID |{detailPok.id}</h4>
+          <h4>NAME |{detailPok.name}</h4>
+          <h4>ATAQUE |{detailPok.ataque}</h4>
+          <h4>DEFENSA |{detailPok.defensa}</h4>
 
-          <img src={detailPok.image} alt={detailPok.name} />
           {/* !! el signo de ? es muy
       importante para leer la info  */}
           {detailPok.tipo.map((tip) => {
             const { name } = tip.type;
-            return <h2>{name}</h2>;
+            return <h4>Tipo: {name}</h4>;
           })}
         </div>
       ) : null}
+      <div className={style.contenedor2}>
+        <img src={detailPok.image} alt={detailPok.name} />
+      </div>
+      <div className={style.contenedor3}>
+        <h4>VELOCIDAD |{detailPok.velocidad}</h4>
+
+        <h4>ALTURA |{detailPok.altura}</h4>
+        <h4>VIDA |{detailPok.vida}</h4>
+        <h4>PESO |{detailPok.peso}</h4>
+      </div>
     </div>
   );
 };
