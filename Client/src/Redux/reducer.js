@@ -4,7 +4,7 @@ import {
   GET_TYPES,
   ORDER_ATACK,
   FILTER,
-  RESET,
+  PREVIUS_PAGE,
   SEARCH_POK,
   ALL_POK_AGAIN,
   ORDER_ALF,
@@ -33,6 +33,11 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         numPage: state.numPage + 1,
+      };
+    case PREVIUS_PAGE:
+      return {
+        ...state,
+        numPage: state.numPage - 1,
       };
     case GET_TYPES:
       return {

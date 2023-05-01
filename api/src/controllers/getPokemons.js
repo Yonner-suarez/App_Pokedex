@@ -8,7 +8,7 @@ const getPokemons = async () => {
   let fullPok;
   let pok;
 
-  const res = await axios.get(`${URL}?limit=100`);
+  const res = await axios.get(`${URL}?limit=200`);
 
   const { results } = res.data;
 

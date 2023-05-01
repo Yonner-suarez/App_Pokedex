@@ -9,6 +9,7 @@ export const FILTER = "FILTER";
 export const SEARCH_POK = "SEARCH_POK";
 export const ALL_POK_AGAIN = "ALL_POK_AGAIN";
 export const FILTER_FOR_API = "FILTER_FOR_API";
+export const PREVIUS_PAGE = "PREVIUS_PAGE";
 
 export const getPokemons = () => {
   try {
@@ -43,6 +44,12 @@ export const getTypes = () => {
 export const nextPage = () => {
   return {
     type: NEXT_PAGE,
+  };
+};
+
+export const previusPage = () => {
+  return {
+    type: PREVIUS_PAGE,
   };
 };
 
