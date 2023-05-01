@@ -23,7 +23,7 @@ function App() {
   const postPok = async (pok) => {
     try {
       const resp = await axios.post("http://localhost:3001/pokemons", pok);
-      alert(resp.data);
+      alert(resp.data.message);
     } catch (error) {
       alert(error.message);
     }

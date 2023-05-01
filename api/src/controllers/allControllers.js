@@ -1,4 +1,4 @@
-const getPokemons = require("./getPokemons");
+const { getPokemons, cachePokemons } = require("./getPokemons");
 const getPokemonsId = require("./getPokemonId");
 const postPokemon = require("./postPokemon");
 const getTypes = require("./getTypes");
@@ -10,4 +10,5 @@ module.exports = {
   postPokemon,
   getByName,
   getTypes,
+  cachePokemons,
 };

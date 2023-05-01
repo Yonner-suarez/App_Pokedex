@@ -16,7 +16,7 @@ const Cards = ({ allPokemons, search }) => {
           AllPokemons
         </button>
       </div>
-      {search.length !== 0
+      {Array.isArray(search) && search.length
         ? search.map((obj) => {
             return (
               <Card

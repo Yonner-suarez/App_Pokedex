@@ -21,10 +21,11 @@ const NavBar = () => {
       } else {
         const resp = await axios.get(`http://localhost:3001/pokemons/${busca}`);
         const { data } = resp;
+        console.log(resp.data);
         dispatch(search(data));
       }
     } catch (error) {
-      alert(error.message);
+      alert("Revisa los datos ingresados", error.message);
     }
   };
   return (

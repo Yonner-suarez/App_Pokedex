@@ -4,8 +4,14 @@ require("dotenv").config();
 
 const { URL } = process.env;
 
+let cachePokemons = null;
+
 const getPokemons = async () => {
-  let fullPok;
+  if (cachePokemons) {
+    return cachePokemons;
+  }
+
+  let fullPok = [];
   let pok;
 
   const res = await axios.get(`${URL}?limit=400`);
@@ -52,12 +58,16 @@ const getPokemons = async () => {
 
   const busca = dbPok.map((pok) => pok.dataValues);
 
-  fullPok = [...busca, ...info];
+  fullPok.push(...busca, ...info);
+  cachePokemons = fullPok;
 
   return fullPok;
 };
 
-module.exports = getPokemons;
+module.exports = {
+  getPokemons,
+  cachePokemons,
+};
 
 /*
 

@@ -22,7 +22,6 @@ const HomePage = () => {
     hasta = numPage * 12;
 
   let catidadPages = Math.floor(pokemonsAll.length / 12);
-  console.log(catidadPages, pokemonsAll);
 
   let viewPokemons = pokemonsAll.slice(inicio, hasta);
 
@@ -127,7 +126,7 @@ const HomePage = () => {
       </select>
 
       <Cards
-        allPokemons={filter === true ? viewPokemons : viewPokemons1}
+        allPokemons={filter ? viewPokemons : viewPokemons1}
         search={search}
       />
       <Paginado catidadPages={catidadPages} />

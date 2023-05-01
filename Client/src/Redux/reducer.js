@@ -105,7 +105,7 @@ const rootReducer = (state = initialState, action) => {
         copyPokemonsAll: newOrder1,
       };
     case FILTER:
-      const newFilter = state.pokemonsAll.filter((pokemons) => {
+      const newFilter = state.copyPokemonsAll.filter((pokemons) => {
         const filtrado = pokemons.Types.filter(
           (ti) => ti.name === action.payload
         );
@@ -119,6 +119,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonsAll: newFilter,
+        numPage: 1,
       };
     case FILTER_FOR_API:
       const filtradoApi = state.copyPokemonsAll.filter(

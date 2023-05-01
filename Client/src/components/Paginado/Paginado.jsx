@@ -9,7 +9,6 @@ import {
 
 const Paginado = ({ catidadPages }) => {
   const { numPage } = useSelector((state) => state);
-  console.log(catidadPages);
 
   const dispatch = useDispatch();
 

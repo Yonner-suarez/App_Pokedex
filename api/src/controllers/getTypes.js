@@ -1,19 +1,19 @@
 const axios = require("axios");
 require("dotenv").config();
-const { Type, Pokemon } = require("../db");
+const { Type } = require("../db");
 
-const getTypes = async (req, res) => {
+const getTypes = async () => {
   try {
     const resp = await axios.get(`https://pokeapi.co/api/v2/type`);
 
     for (tipo of resp.data.results) {
       const existe = await Type.findOne({ where: { name: tipo.name } });
-      if (existe) return res.json(await Type.findAll());
+      if (existe) return await Type.findAll();
       await Type.create({ name: tipo.name });
     }
-    res.status(200).json(await Type.findAll());
+    return await Type.findAll();
   } catch (error) {
-    res.status(404).json({ error: error.message });
+    return error.message;
   }
 };
 module.exports = getTypes;

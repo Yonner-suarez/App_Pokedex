@@ -1,13 +1,17 @@
 const axios = require("axios");
+
 const { Pokemon, Type } = require("../db");
 require("dotenv").config();
 
 const { URL } = process.env;
 
-const getPokemonsId = async (req, res) => {
-  const { idPokemon } = req.params;
-
+const getPokemonsId = async (idPokemon) => {
   if (idPokemon % 1 === 0) {
+    // if (cachePokemons) {
+    //   cachePokemons = cachePokemons.filter((po) => po.id === idPokemon);
+    //   console.log(cachePokemons);
+    //   return cachePokemons;
+    // }
     try {
       const pokemonId = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
@@ -31,9 +35,9 @@ const getPokemonsId = async (req, res) => {
         peso: pokemonId.data.weight,
         Types: newObj,
       };
-      res.status(200).json([pok]);
+      return [pok];
     } catch (error) {
-      res.status(404).json({ err: error.message });
+      throw Error(error);
     }
   } else {
     try {
@@ -45,9 +49,9 @@ const getPokemonsId = async (req, res) => {
           },
         },
       });
-      return res.status(200).json([pokemon.dataValues]);
+      return [pokemon];
     } catch (error) {
-      res.status(404).json({ err: error.message });
+      throw Error(error);
     }
   }
 };
