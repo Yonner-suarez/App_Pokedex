@@ -29,3 +29,9 @@ body .footer {
   align-items: center;
   justify-content: center;
 }
+.link {
+  color: white;
+  justify-content: center;
+  align-items: center;
+  margin-left: 5px;
+}

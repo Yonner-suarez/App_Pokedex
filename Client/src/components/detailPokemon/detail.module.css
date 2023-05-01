@@ -65,3 +65,35 @@
   align-items: center;
   margin-top: 250px;
 }
+.div {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+}
+.link {
+  display: inline;
+  padding: 15px 30px;
+  color: #fff;
+  background-color: rgba(0, 229, 255, 0.248);
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  font-family: cursive;
+  border: none;
+  cursor: pointer;
+  margin: 0.4em;
+  border-radius: 10px;
+}
+.link:hover {
+  background: rgba(0, 229, 255, 0.745);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
+    0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
+  transition-delay: 0.25s;
+}
+.fullCont .div {
+  justify-content: flex-end;
+  align-items: flex-end;
+  margin-right: 210px;
+}

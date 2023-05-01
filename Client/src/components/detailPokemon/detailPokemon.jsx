@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const DetailPokemmon = () => {
   const { id } = useParams();
@@ -55,6 +56,11 @@ const DetailPokemmon = () => {
           );
         })
       )}
+      <div className={style.div}>
+        <Link to="/homePage" style={{ textDecoration: "none" }}>
+          <button className={style.link}>Back</button>
+        </Link>
+      </div>
     </div>
   );
 };

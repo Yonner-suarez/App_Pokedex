@@ -102,3 +102,6 @@ h5 {
   color: rgba(255, 255, 255, 0.5);
   cursor: not-allowed;
 }
+.link {
+  color: white;
+}

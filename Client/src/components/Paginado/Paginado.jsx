@@ -7,8 +7,9 @@ import {
   previusPageTen,
 } from "../../Redux/action";
 
-const Paginado = ({ catidadPages, catidadPages1 }) => {
+const Paginado = ({ catidadPages }) => {
   const { numPage } = useSelector((state) => state);
+  console.log(catidadPages);
 
   const dispatch = useDispatch();
 
@@ -43,11 +44,13 @@ const Paginado = ({ catidadPages, catidadPages1 }) => {
       >
         Previus
       </button>
-      <p>{numPage} OF 34</p>
+      <p>
+        {numPage} OF {catidadPages + 1}
+      </p>
       <button
         onClick={next}
         className={style.next}
-        disabled={numPage === 34 ? true : false}
+        disabled={numPage === catidadPages + 1 ? true : false}
       >
         Next
       </button>
@@ -55,7 +58,11 @@ const Paginado = ({ catidadPages, catidadPages1 }) => {
       <button
         className={style.next}
         onClick={nextTen}
-        disabled={numPage === 25 || numPage >= 25 ? true : false}
+        disabled={
+          numPage === catidadPages - 10 || numPage >= catidadPages - 10
+            ? true
+            : false
+        }
       >
         ➡️
       </button>
