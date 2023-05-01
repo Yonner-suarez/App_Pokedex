@@ -1,12 +1,49 @@
 .contenedor {
-  margin-top: 100px;
+  background-color: transparent;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 97vh;
+  width: 98vw;
+  margin-left: 15px;
 }
 .boton {
-  margin-top: 400px;
-  width: 90px;
-  height: 100px;
+  margin-top: 180px;
+  width: 100px;
+  height: 130px;
+  filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
+  cursor: pointer;
+  transition-property: width heigth;
+  transition-duration: 0.5s;
+}
+.boton:hover {
+  width: 120px;
+  height: 150px;
 }
 
-.boton:hover {
-  pointer-events: visible;
+.imgcont {
+  display: flex;
+  width: 700px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: -20px;
+  border-radius: 50%;
+
+  justify-content: center;
+}
+
+.imgcont .image {
+  filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
+  width: 500px;
+  height: 300px;
+  transition-property: width, heigth;
+  transition-duration: 1s;
+}
+
+.imgcont .image:hover {
+  width: 600px;
+}
+
+h2 {
+  text-transform: uppercase;
 }

@@ -22,12 +22,13 @@ function App() {
   };
 
   const postPok = async (pok) => {
-    const res = await axios.post("http://localhost:3001/pokemons", pok);
-    const { data } = res;
-    console.log(data);
+    try {
+      const resp = await axios.post("http://localhost:3001/pokemons", pok);
+      alert(resp.data);
+    } catch (error) {
+      alert(error.message);
+    }
   };
-
-  
 
   const { pathname } = useLocation();
   return (

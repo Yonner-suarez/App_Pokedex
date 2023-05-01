@@ -1,8 +1,19 @@
+.contenedor {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 .boton {
-  display: inline;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   padding: 15px 30px;
   color: #fff;
-  background-color: rgba(0, 229, 255, 0.248);
+  background-color: rgba(253, 253, 253, 0.503);
   letter-spacing: 2px;
   font-size: 16px;
   text-decoration: none;
@@ -12,10 +23,37 @@
   border: none;
   cursor: pointer;
   margin: 0.4em;
+  border-radius: 10px;
 }
 .boton:hover {
-  background: rgba(0, 229, 255, 0.248);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
-    0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
+  background: rgba(0, 255, 255, 0.651);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.338),
+    0 0 40px rgba(0, 229, 255, 0.304), 0 0 80px rgba(0, 229, 255, 0.233);
+  transition-delay: 0.25s;
+}
+.img {
+  width: 100px;
+}
+.logout {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 15px 30px;
+  color: #fff;
+  background-color: rgba(253, 253, 253, 0.503);
+  letter-spacing: 2px;
+  font-size: 16px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: 0.2s;
+  font-family: cursive;
+  border: none;
+  cursor: pointer;
+  margin: 0.4em;
+  border-radius: 10px;
+}
+.logout:hover {
+  background: rgba(254, 58, 8, 0.651);
   transition-delay: 0.25s;
 }

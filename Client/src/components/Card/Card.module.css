@@ -1,7 +1,7 @@
 .contenedor {
-  background-color: rgba(0, 229, 255, 0.391);
+  background-color: rgba(253, 253, 253, 0.503);
 
-  border: 2px solid black;
+  box-shadow: 10px;
   display: inline-flex;
   position: relative;
   justify-content: center;
@@ -10,14 +10,12 @@
   height: 250px;
   margin-bottom: 50px;
   padding-left: 0;
-  border-radius: 10px;
+  border-radius: 15px;
 }
 .contenedor:hover {
-  background-color: rgba(0, 229, 255, 0.714);
+  background-color: rgba(0, 255, 255, 0.651);
 }
 .contenedor1 {
-  border: 2px solid black;
-
   border-top-left-radius: 100px;
   border-top-right-radius: 100px;
   border-bottom-left-radius: 100px;
@@ -26,10 +24,6 @@
   margin-top: 0;
   align-items: center;
   justify-content: center;
-  background-color: rgba(255, 255, 255, 0.537);
-}
-.contenedor1:hover {
-  background-color: rgba(255, 255, 255, 0.711);
 }
 
 .img {
@@ -43,10 +37,34 @@
   transition: 0.5s;
 }
 h3 {
-  color: #fff;
-  font-size: 20px;
+  color: #000;
+  font-size: 18px;
+  margin: 10px;
   font-family: cursive;
   text-decoration: none;
+  text-transform: uppercase;
+}
+h5 {
+  color: #000;
+  font-size: 18px;
+  margin: 5px;
+  font-family: cursive;
+  text-decoration: none;
+}
+.tipos {
+  border: 2px solid black;
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+}
+.contenedor .tipos {
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+  justify-content: space-around;
+
+  border-radius: 20px;
 }
 .link {
   text-decoration: none;

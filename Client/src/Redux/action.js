@@ -3,24 +3,25 @@ import axios from "axios";
 export const GET_ALL_POKEMONS = " GET_ALL_POKEMONS";
 export const NEXT_PAGE = "NEXT_PAGE";
 export const GET_TYPES = "GET_TYPES";
-export const ORDER = "ORDER";
+export const ORDER_ATACK = "ORDER_ATACK";
+export const ORDER_ALF = "ORDER_ALF";
 export const FILTER = "FILTER";
-export const RESET = "RESET";
-export const SEARCH_POK = 'SEARCH_POK';
+export const SEARCH_POK = "SEARCH_POK";
+export const ALL_POK_AGAIN = "ALL_POK_AGAIN";
+export const FILTER_FOR_API = "FILTER_FOR_API";
 
 export const getPokemons = () => {
   try {
     return async (dispatch) => {
       const respuesta = await axios.get("http://localhost:3001/pokemons");
       const { data } = respuesta;
-
       return dispatch({
         type: GET_ALL_POKEMONS,
         payload: data,
       });
     };
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 };
 
@@ -35,7 +36,7 @@ export const getTypes = () => {
       });
     };
   } catch (error) {
-    console.log(error.message);
+    alert(error.message);
   }
 };
 
@@ -45,30 +46,40 @@ export const nextPage = () => {
   };
 };
 
-export const order = (orden) => {
+export const orderAtack = (orden) => {
   return {
-    type: ORDER,
+    type: ORDER_ATACK,
+    payload: orden,
+  };
+};
+export const orderAlfabetic = (orden) => {
+  return {
+    type: ORDER_ALF,
     payload: orden,
   };
 };
 
-export const filterPokemons = (idFiltro) => {
+export const filterPokemons = (obj) => {
   return {
     type: FILTER,
-    payload: idFiltro,
+    payload: obj,
   };
 };
-
-export const reset = () => {
-  return {
-    type: RESET,
-  };
-};
-
 
 export const search = (pokemonsFinded) => {
   return {
     type: SEARCH_POK,
     payload: pokemonsFinded,
+  };
+};
+export const allPokAgain = () => {
+  return {
+    type: ALL_POK_AGAIN,
+  };
+};
+export const filterForApiOrBdd = (filtrado) => {
+  return {
+    type: FILTER_FOR_API,
+    payload: filtrado,
   };
 };

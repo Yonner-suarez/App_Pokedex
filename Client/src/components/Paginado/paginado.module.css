@@ -7,6 +7,8 @@
   margin: 1em;
   color: aliceblue;
   font-size: 18px;
+  font-size: 20px;
+  font-family: cursive;
 }
 .next:hover {
   background-color: rgba(0, 229, 255, 0.714);

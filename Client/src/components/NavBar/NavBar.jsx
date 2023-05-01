@@ -17,24 +17,33 @@ const NavBar = () => {
           `http://localhost:3001/pokemons?name=${busca}`
         );
         const { data } = resp;
-        console.log(data);
         dispatch(search(data));
       } else {
         const resp = await axios.get(`http://localhost:3001/pokemons/${busca}`);
         const { data } = resp;
         dispatch(search(data));
-        console.log(data);
       }
     } catch (error) {
       alert(error.message);
     }
   };
   return (
-    <div>
+    <div className={style.contenedor}>
+      <Link to="/">
+        <img
+          src={
+            "https://1000marcas.net/wp-content/uploads/2020/01/Logo-Pokemon.png"
+          }
+          alt=""
+          className={style.img}
+        />
+      </Link>
       <SearchBar onSearch={onSearch} />
-
-      <Link to="/Add">
+      <Link to="/Add" style={{ textDecoration: "none" }}>
         <button className={style.boton}>Create your Pokemon</button>
+      </Link>
+      <Link to="/" style={{ textDecoration: "none" }}>
+        <button className={style.logout}>Log Out</button>
       </Link>
     </div>
   );

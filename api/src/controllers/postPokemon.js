@@ -14,19 +14,21 @@ const postPokemon = async (req, res) => {
   if (!busca) {
     const newPokemon = await Pokemon.create({
       name,
-      image,
       vida,
       ataque,
       defensa,
       velocidad,
       altura,
       peso,
-      tipo,
+      image,
     });
 
     res.status(200).json({ message: "Pokemon creado exitosamente" });
-    console.log(newPokemon);
-    await newPokemon.addTypes(tipo);
+
+    for (const name of tipo) {
+      const buscaNamesType = await Type.findOne({ where: { name: name } });
+      await newPokemon.addTypes(buscaNamesType.slot);
+    }
   }
 };
 

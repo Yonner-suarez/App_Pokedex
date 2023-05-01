@@ -1,5 +1,5 @@
 body {
-  background-image: url("https://wallpaperaccess.com/full/3175197.jpg");
+  background-image: url("https://cdn.wallpapersafari.com/49/54/wRr4JP.jpg");
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
@@ -14,4 +14,16 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+.footer {
+  color: white;
+  font-family: cursive;
+  letter-spacing: 2px;
+  padding-right: 5px;
+}
+body .footer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }

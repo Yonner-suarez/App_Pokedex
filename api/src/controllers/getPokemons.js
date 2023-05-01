@@ -4,82 +4,59 @@ require("dotenv").config();
 
 const { URL } = process.env;
 
-const getPokemons = (req, res) => {
-  const { name } = req.query;
+const getPokemons = async () => {
+  let fullPok;
+  let pok;
 
-  if (!name) {
-    let urls;
-    let fullPok;
-    let pok;
-    axios
-      .get(`${URL}?limit=100`)
-      .then((res) => {
-        urls = res.data.results.map((dat) => dat.url);
-        return urls;
-      })
-      .then((resp) => {
-        axios.all(resp.map((url) => axios.get(url))).then(async (respuesta) => {
-          let aux = respuesta.map((data) => data);
-          const newAux = aux.map((obj) => {
-            pok = {
-              id: obj.data.id,
-              name: obj.data.name,
-              image: obj.data.sprites.other.dream_world.front_default,
-              vida: obj.data.stats[0]?.base_stat,
-              ataque: obj.data.stats[1]?.base_stat,
-              defensa: obj.data.stats[2]?.base_stat,
-              velocidad: obj.data.base_experience,
-              altura: obj.data.height,
-              peso: obj.data.weight,
-              tipo: obj.data.types[0]?.type.name,
-            };
-            return pok;
-          });
+  const res = await axios.get(`${URL}?limit=100`);
 
-          const dbPok = await Pokemon.findAll({
-            include: {
-              model: Type,
-              attributes: ["name"],
-              through: {
-                attributes: [],
-              },
-            },
-          });
+  const { results } = res.data;
 
-          fullPok = [...dbPok, ...newAux];
-          res.status(200).json(fullPok);
-          //await Pokemon.bulkCreate(allPok);
-        });
-      })
-      .catch((error) => {
-        res.status(404).json({ error: error.message });
-      });
-  } else {
-    const nameToLOwerCase = name.toLowerCase();
+  const url = results.map((url) => url.url);
 
-    axios
-      .get(`https://pokeapi.co/api/v2/pokemon/${nameToLOwerCase}`)
-      .then((resp) => {
-        const pokemonName = {
-          id: resp.data.id,
-          name: resp.data.name,
-          image: resp.data.sprites.other.dream_world.front_default,
-          vida: resp.data.stats[0]?.base_stat,
-          ataque: resp.data.stats[1]?.base_stat,
-          defensa: resp.data.stats[2]?.base_stat,
-          velocidad: resp.data.base_experience,
-          altura: resp.data.height,
-          peso: resp.data.weight,
-          tipo: resp.data.types[0]?.type.name,
-        };
+  const resp = await axios.all(url.map((url) => axios.get(url)));
 
-        res.status(200).json([pokemonName]);
-      })
-      .catch((err) => {
-        res.status(404).json({ error: err.message });
-      });
-  }
+  const data = resp.map((info) => info.data);
+
+  const info = data.map((perso) => {
+    const newObj = perso.types.map((ele) => {
+      return {
+        slot: ele.slot,
+        name: ele.type.name,
+      };
+    });
+    pok = {
+      id: perso.id,
+      name: perso.name,
+      image: perso.sprites.other.dream_world.front_default,
+      vida: perso.stats[0]?.base_stat,
+      ataque: perso.stats[1]?.base_stat,
+      defensa: perso.stats[2]?.base_stat,
+      velocidad: perso.base_experience,
+      altura: perso.height,
+      peso: perso.weight,
+      Types: newObj,
+    };
+
+    return pok;
+  });
+
+  const dbPok = await Pokemon.findAll({
+    include: {
+      model: Type,
+      through: {
+        attributes: [],
+      },
+    },
+  });
+
+  const busca = dbPok.map((pok) => pok.dataValues);
+
+  fullPok = [...busca, ...info];
+
+  return fullPok;
 };
+
 module.exports = getPokemons;
 
 /*

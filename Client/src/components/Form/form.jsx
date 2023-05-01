@@ -1,6 +1,7 @@
 import style from "./form.module.css";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import validations from "./validations";
 
 const Form = ({ postPok }) => {
   const { types } = useSelector((state) => state);
@@ -16,20 +17,43 @@ const Form = ({ postPok }) => {
     peso: 0,
     tipo: [],
   });
+  const [errors, setErrors] = useState({
+    name: "",
+    image: "",
+    vida: "",
+    ataque: "",
+    defensa: "",
+    velocidad: "",
+    altura: "",
+    peso: "",
+    tipo: [],
+  });
 
   const handleOnChange = (event) => {
     const key = event.target.name,
       value = event.target.value;
+    let aux;
+    if (event.target.value.includes(Number(event.target.value))) {
+      aux = Number(event.target.value);
+    }
 
     setNewPok({
       ...newPok,
-      [key]: value,
+      [key]: aux ? aux : value,
     });
+    validations(
+      {
+        ...newPok,
+        [key]: aux ? aux : value,
+      },
+      errors,
+      setErrors
+    );
   };
 
   const onCheck = (event) => {
     if (newPok.tipo.includes(event.target.value)) {
-      newPok.tipo = newPok.tipo.filter((id) => id !== event.target.value);
+      newPok.tipo = newPok.tipo.filter((name) => name !== event.target.value);
       setNewPok({
         ...newPok,
         tipo: newPok.tipo,
@@ -52,7 +76,11 @@ const Form = ({ postPok }) => {
       <div className={style.contenedorImg}>
         <h2>Here you can create your Pokemon</h2>
         <img
-          src="https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
+          src={
+            newPok.image
+              ? newPok.image
+              : "https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
+          }
           alt=""
           className={style.img}
         />
@@ -70,98 +98,109 @@ const Form = ({ postPok }) => {
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>{errors.name}</span>
           <br />
         </label>
         <label>
           <span className={style.span}>vida: </span>
 
           <input
-            type="text"
+            type="range"
             name="vida"
             value={newPok.vida}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.vida ? errors.vida : newPok.vida}
+          </span>
           <br />
         </label>
         <label>
           <span className={style.span}>Ataque:</span>
 
           <input
-            type="text"
+            type="range"
             name="ataque"
             value={newPok.ataque}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.ataque ? errors.ataque : newPok.ataque}
+          </span>
           <br />
         </label>
         <label>
           <span className={style.span}>Defensa:</span>
 
           <input
-            type="text"
+            type="range"
             name="defensa"
-            value={newPok.velocidad}
+            value={newPok.defensa}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.defensa ? errors.defensa : newPok.defensa}
+          </span>
           <br />
         </label>
         <label htmlFor="">
           <span className={style.span}>Velocidad:</span>
 
           <input
-            type="text"
+            type="range"
             name="velocidad"
             value={newPok.velocidad}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.velocidad ? errors.velocidad : newPok.velocidad}
+          </span>
           <br />
         </label>
         <label htmlFor="">
           <span className={style.span}>Altura:</span>
 
           <input
-            type="text"
+            type="range"
             name="altura"
             value={newPok.altura}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.altura ? errors.altura : newPok.altura}
+          </span>
           <br />
         </label>
         <label>
           <span className={style.span}> Peso: </span>
 
           <input
-            type="text"
+            type="range"
             name="peso"
             value={newPok.peso}
             onChange={handleOnChange}
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>
+            {errors.peso ? errors.peso : newPok.peso}
+          </span>
           <br />
         </label>
 
         <label>
           <span className={style.span}>Link Image:</span>
 
-          {console.log(types)}
           <input
             type="text"
             name="image"
@@ -170,7 +209,7 @@ const Form = ({ postPok }) => {
             className={style.input}
           />
           <br />
-          <span></span>
+          <span className={style.controlador}>{errors.image}</span>
           <br />
         </label>
 
@@ -182,7 +221,7 @@ const Form = ({ postPok }) => {
                 <input
                   type="checkbox"
                   name={tipo.name}
-                  value={tipo.id}
+                  value={tipo.name}
                   id={tipo.id}
                   onChange={onCheck}
                 />
@@ -190,8 +229,26 @@ const Form = ({ postPok }) => {
               </div>
             );
           })}
+          <span className={style.controlador}>{errors.tipo}</span>
         </div>
-        <button type="submit" className={style.boton}>
+
+        <button
+          type="submit"
+          disabled={
+            errors.name ||
+            errors.ataque ||
+            errors.image ||
+            errors.velocidad ||
+            errors.defensa ||
+            errors.vida ||
+            errors.peso ||
+            errors.altura ||
+            newPok.tipo.length === 0
+              ? true
+              : false
+          }
+          className={style.boton}
+        >
           Create
         </button>
       </form>

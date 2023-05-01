@@ -1,6 +1,6 @@
 const axios = require("axios");
 require("dotenv").config();
-const { Type } = require("../db");
+const { Type, Pokemon } = require("../db");
 
 const getTypes = async (req, res) => {
   try {

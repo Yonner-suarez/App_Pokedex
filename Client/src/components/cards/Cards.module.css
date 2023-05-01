@@ -7,7 +7,31 @@
 .contenedor::-webkit-scrollbar {
   background-color: transparent;
 }
-
+.all {
+  background-color: rgba(0, 229, 255, 0.248);
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+  display: inline;
+  margin: 1em;
+  color: aliceblue;
+  font-size: 15px;
+}
+.contenedor .all {
+  display: inline-flexbox;
+  flex-direction: row;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  font-family: cursive;
+  font-size: 15px;
+}
+.all:hover {
+  background-color: rgba(0, 229, 255, 0.714);
+}
+.contenedorBoton {
+  background-color: transparent;
+}
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 }

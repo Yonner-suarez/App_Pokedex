@@ -2,7 +2,8 @@ import style from "./paginado.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { nextPage } from "../../Redux/action";
 
-const Paginado = () => {
+const Paginado = ({ catidadPages, catidadPages1 }) => {
+  console.log(catidadPages, catidadPages1);
   const { numPage } = useSelector((state) => state);
   const dispatch = useDispatch();
   const next = () => {

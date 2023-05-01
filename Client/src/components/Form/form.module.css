@@ -20,7 +20,7 @@
   background-color: rgba(9, 199, 220, 0.654);
   display: inline-flexbox;
   width: 500px;
-  height: 90px;
+  height: 120px;
 }
 .contenedorImg {
   background-color: transparent;
@@ -54,7 +54,7 @@ h2 {
 }
 
 .form .span {
-  color: white;
+  color: rgb(0, 0, 0);
   margin-right: 10px;
   font-family: cursive;
   font-size: larger;
@@ -91,4 +91,14 @@ h5 {
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
     0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
   transition-delay: 0.25s;
+}
+.controlador {
+  font-size: 15px;
+  font-family: cursive;
+  color: #fff;
+}
+.boton:disabled {
+  background-color: rgba(0, 229, 255, 0.411);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
 }

@@ -4,7 +4,7 @@ module.exports = (sequelize) => {
   sequelize.define(
     "Type",
     {
-      id: {
+      slot: {
         type: DataTypes.INTEGER,
         allowNull: false,
         primaryKey: true,

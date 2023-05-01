@@ -2,16 +2,15 @@
   background-color: transparent;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
   width: 700px;
-  margin-left: 400px;
-  margin-top: 20px;
+
+  margin-top: 0 auto;
   justify-content: center;
   align-items: center;
 }
 .input {
   color: #fff;
-  position: relative;
+
   display: flex;
   flex-direction: row;
   padding: 0 80px;
@@ -19,21 +18,23 @@
   font-family: cursive;
   background-color: transparent;
   height: 50px;
+  border-radius: 10px;
+  background-color: rgba(253, 253, 253, 0.503);
   /* left: 270px; */
 }
 ::placeholder {
   color: white;
 }
 .input:hover {
-  background: rgba(0, 229, 255, 0.248);
+  background: rgba(0, 255, 255, 0.651);
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.248),
     0 0 40px rgba(0, 229, 255, 0.248), 0 0 80px rgba(0, 229, 255, 0.248);
 }
 .boton {
-  display: inline;
+  display: flex;
   padding: 15px 30px;
   color: #fff;
-  background-color: rgba(0, 229, 255, 0.248);
+  background-color: rgba(0, 255, 255, 0.651);
   letter-spacing: 2px;
   font-size: 16px;
   text-decoration: none;
@@ -42,11 +43,23 @@
   font-family: cursive;
   border: none;
   cursor: pointer;
-  margin: 0.4em;
+  border-radius: 10px;
 }
 .boton:hover {
-  background: rgba(0, 229, 255, 0.248);
+  background: rgba(186, 231, 236, 0.248);
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.543),
     0 0 40px rgba(0, 229, 255, 0.449), 0 0 80px rgba(0, 229, 255, 0.411);
   transition-delay: 0.25s;
+}
+.contenedor.boton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+.contenedor.input {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
