@@ -1,15 +1,19 @@
 import axios from "axios";
 
-export const GET_ALL_POKEMONS = " GET_ALL_POKEMONS";
-export const NEXT_PAGE = "NEXT_PAGE";
-export const GET_TYPES = "GET_TYPES";
-export const ORDER_ATACK = "ORDER_ATACK";
-export const ORDER_ALF = "ORDER_ALF";
-export const FILTER = "FILTER";
-export const SEARCH_POK = "SEARCH_POK";
-export const ALL_POK_AGAIN = "ALL_POK_AGAIN";
-export const FILTER_FOR_API = "FILTER_FOR_API";
-export const PREVIUS_PAGE = "PREVIUS_PAGE";
+const {
+  GET_ALL_POKEMONS,
+  ALL_POK_AGAIN,
+  FILTER,
+  FILTER_FOR_API,
+  GET_TYPES,
+  NEXT_PAGE,
+  ORDER_ALF,
+  ORDER_ATACK,
+  PREVIUS_PAGE,
+  SEARCH_POK,
+  PREVIUS_PAGE_TEN,
+  NEXT_TEN_PAGES,
+} = require("./types");
 
 export const getPokemons = () => {
   try {
@@ -46,10 +50,20 @@ export const nextPage = () => {
     type: NEXT_PAGE,
   };
 };
+export const nextTenPages = () => {
+  return {
+    type: NEXT_TEN_PAGES,
+  };
+};
 
 export const previusPage = () => {
   return {
     type: PREVIUS_PAGE,
+  };
+};
+export const previusPageTen = () => {
+  return {
+    type: PREVIUS_PAGE_TEN,
   };
 };
 

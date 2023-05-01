@@ -20,33 +20,41 @@ const DetailPokemmon = () => {
   }, [id]);
 
   return (
-    <div>
-      {detailPok.map((pok) => {
-        return (
-          <div className={style.contenedor}>
-            <div className={style.contenedor1}>
-              <h4>ID |{pok.idPok ? pok.idPok : pok.id}</h4>
-              <h4>NAME |{pok.name}</h4>
-              <h4>ATAQUE |{pok.ataque}</h4>
-              <h4>DEFENSA |{pok.defensa}</h4>
-              <h4>Tipo:</h4>
-              {pok.Types.map((tip) => {
-                return <h4>{tip.name}</h4>;
-              })}
-            </div>
-            <div className={style.contenedor2}>
-              <img src={pok.image} alt={pok.name} />
-            </div>
-            <div className={style.contenedor3}>
-              <h4>VELOCIDAD |{pok.velocidad}</h4>
+    <div className={style.fullCont}>
+      {!detailPok.length ? (
+        <img
+          src="https://c.tenor.com/XjV2_OLEE_EAAAAC/spin-loading.gif"
+          alt=""
+          className={style.img}
+        />
+      ) : (
+        detailPok.map((pok) => {
+          return (
+            <div className={style.contenedor}>
+              <div className={style.contenedor1}>
+                <h4>ID |{pok.idPok ? pok.idPok : pok.id}</h4>
+                <h4>NAME |{pok.name}</h4>
+                <h4>ATAQUE |{pok.ataque}</h4>
+                <h4>DEFENSA |{pok.defensa}</h4>
+                <h4>Tipo:</h4>
+                {pok.Types.map((tip) => {
+                  return <h4>{tip.name}</h4>;
+                })}
+              </div>
+              <div className={style.contenedor2}>
+                <img src={pok.image} alt={pok.name} />
+              </div>
+              <div className={style.contenedor3}>
+                <h4>VELOCIDAD |{pok.velocidad}</h4>
 
-              <h4>ALTURA |{pok.altura}</h4>
-              <h4>VIDA |{pok.vida}</h4>
-              <h4>PESO |{pok.peso}</h4>
+                <h4>ALTURA |{pok.altura}</h4>
+                <h4>VIDA |{pok.vida}</h4>
+                <h4>PESO |{pok.peso}</h4>
+              </div>
             </div>
-          </div>
-        );
-      })}
+          );
+        })
+      )}
     </div>
   );
 };

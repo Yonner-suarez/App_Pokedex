@@ -16,10 +16,12 @@ code {
     monospace;
 }
 .footer {
+  height: 20px;
   color: white;
   font-family: cursive;
   letter-spacing: 2px;
   padding-right: 5px;
+  clear: both;
 }
 body .footer {
   display: flex;

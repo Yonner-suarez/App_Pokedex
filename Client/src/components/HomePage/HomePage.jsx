@@ -34,7 +34,7 @@ const HomePage = () => {
   useEffect(() => {
     dispatch(getPokemons());
     setFilter(false);
-  }, []);
+  }, [dispatch]);
 
   const onChangeAtack = (event) => {
     const { value } = event.target;

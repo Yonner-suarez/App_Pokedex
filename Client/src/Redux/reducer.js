@@ -9,7 +9,9 @@ import {
   ALL_POK_AGAIN,
   ORDER_ALF,
   FILTER_FOR_API,
-} from "./action";
+  NEXT_TEN_PAGES,
+  PREVIUS_PAGE_TEN,
+} from "./types";
 
 const initialState = {
   pokemonsAll: [],
@@ -34,10 +36,20 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         numPage: state.numPage + 1,
       };
+    case NEXT_TEN_PAGES:
+      return {
+        ...state,
+        numPage: state.numPage + 10,
+      };
     case PREVIUS_PAGE:
       return {
         ...state,
         numPage: state.numPage - 1,
+      };
+    case PREVIUS_PAGE_TEN:
+      return {
+        ...state,
+        numPage: state.numPage - 10,
       };
     case GET_TYPES:
       return {
@@ -99,6 +111,8 @@ const rootReducer = (state = initialState, action) => {
         );
         if (filtrado.length) {
           return pokemons;
+        } else {
+          return null;
         }
       });
 

@@ -1,10 +1,20 @@
+.foot {
+  background-color: transparent;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
 .next {
   background-color: rgba(0, 229, 255, 0.248);
-  width: 120px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
+
+  justify-content: center;
+  align-items: center;
   border-radius: 5px;
-  display: inline;
-  margin: 1em;
+  margin: 1px;
   color: aliceblue;
   font-size: 18px;
   font-size: 20px;
@@ -12,4 +22,15 @@
 }
 .next:hover {
   background-color: rgba(0, 229, 255, 0.714);
+}
+.next:disabled {
+  background-color: rgba(0, 229, 255, 0.411);
+  color: rgba(255, 255, 255, 0.5);
+  cursor: not-allowed;
+}
+p {
+  color: white;
+  text-transform: uppercase;
+  font-family: cursive;
+  font-size: 20px;
 }
