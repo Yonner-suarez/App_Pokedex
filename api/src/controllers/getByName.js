@@ -1,6 +1,10 @@
 const { Pokemon, Type } = require("../db");
 const axios = require("axios");
 
+require("dotenv").config();
+
+const { URL_BASE } = process.env;
+
 const getByName = async (name) => {
   const nameToLOwerCase = name.toLowerCase();
 
@@ -40,9 +44,7 @@ const getByName = async (name) => {
 
       return [pok];
     } else {
-      const resp = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${nameToLOwerCase}`
-      );
+      const resp = await axios.get(`${URL_BASE}/${nameToLOwerCase}`);
       const { data } = resp;
       const pokemonName = [
         {

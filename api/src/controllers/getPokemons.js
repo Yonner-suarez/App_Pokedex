@@ -2,7 +2,7 @@ const axios = require("axios");
 const { Pokemon, Type } = require("../db");
 require("dotenv").config();
 
-const { URL } = process.env;
+const { URL_BASE } = process.env;
 
 let cachePokemons = null;
 
@@ -14,7 +14,7 @@ const getPokemonsApi = async () => {
   let fullPok = [];
   let pok;
 
-  let nextUrl = `${URL}?limit=100`;
+  let nextUrl = `${URL_BASE}?limit=100`;
 
   while (nextUrl) {
     try {
