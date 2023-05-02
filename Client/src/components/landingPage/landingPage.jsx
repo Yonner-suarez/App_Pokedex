@@ -13,20 +13,31 @@ const LandingPage = ({ navigate }) => {
     <div className={style.contenedor}>
       <div className={style.imgcont}>
         <img
-          src={
-            "https://th.bing.com/th/id/R.570fcab842fdd7d199a526f2a1e5f0f6?rik=eTEtfQ%2by0pFa2Q&pid=ImgRaw&r=0"
-          }
+          src={"https://wallpaperaccess.com/full/3175040.jpg"}
           alt=""
           className={style.image}
         />
       </div>
 
-      <img
-        src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"
-        alt=""
-        onClick={navigate}
-        className={style.boton}
-      />
+      <hr />
+
+      <div className={style.const}>
+        <img
+          src={
+            "https://th.bing.com/th/id/R.bc8750fd1389936180e9b86aea819fe7?rik=q2ElpW0a8IyRlQ&pid=ImgRaw&r=0"
+          }
+          alt=""
+          className={style.logo}
+          onClick={navigate}
+        />
+
+        <img
+          src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"
+          alt=""
+          onClick={navigate}
+          className={style.boton}
+        />
+      </div>
     </div>
   );
 };

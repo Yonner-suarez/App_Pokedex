@@ -18,7 +18,7 @@ const {
 export const getPokemons = () => {
   try {
     return async (dispatch) => {
-      const respuesta = await axios.get("http://localhost:3001/pokemons");
+      const respuesta = await axios.get("/pokemons");
       const { data } = respuesta;
       return dispatch({
         type: GET_ALL_POKEMONS,
@@ -33,7 +33,7 @@ export const getPokemons = () => {
 export const getTypes = () => {
   try {
     return async (dispatch) => {
-      const resp = await axios.get("http://localhost:3001/types");
+      const resp = await axios.get("/types");
       const { data } = resp;
       return dispatch({
         type: GET_TYPES,

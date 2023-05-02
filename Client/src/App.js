@@ -9,6 +9,8 @@ import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
 
+axios.defaults.baseURL = "http://localhost:3001";
+
 function App() {
   const navigate = useNavigate();
 
@@ -22,7 +24,7 @@ function App() {
 
   const postPok = async (pok) => {
     try {
-      const resp = await axios.post("http://localhost:3001/pokemons", pok);
+      const resp = await axios.post("/pokemons", pok);
       alert(resp.data.message);
     } catch (error) {
       alert(error.message);

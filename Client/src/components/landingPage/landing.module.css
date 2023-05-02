@@ -1,14 +1,13 @@
 .contenedor {
-  background-color: transparent;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 97vh;
-  width: 98vw;
-  margin-left: 15px;
+  background-color: rgba(0, 255, 255, 0.225);
+  display: inline-flex;
+  height: 88vh;
+  width: 78vw;
+  margin: 0 auto;
+  margin-top: 30px;
 }
 .boton {
-  margin-top: 180px;
+  margin-top: 110px;
   width: 100px;
   height: 130px;
   filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
@@ -22,12 +21,13 @@
 }
 
 .imgcont {
-  display: flex;
+  background-color: transparent;
+  display: inline-flex;
+
   width: 700px;
   height: 400px;
-  margin: 0 auto;
-  margin-top: -20px;
-  border-radius: 50%;
+  margin: 0;
+  margin-top: 120px;
 
   justify-content: center;
 }
@@ -36,14 +36,27 @@
   filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
   width: 500px;
   height: 300px;
+  margin-top: 50px;
   transition-property: width, heigth;
   transition-duration: 1s;
 }
 
-.imgcont .image:hover {
-  width: 600px;
-}
-
 h2 {
   text-transform: uppercase;
+}
+.logo {
+  width: 400px;
+  height: 280px;
+  margin-top: 50px;
+  transition-property: width, heigth;
+  transition-duration: 1s;
+  cursor: pointer;
+}
+.const {
+  background-color: transparent;
+  transition-property: width, heigth;
+  transition-duration: 1s;
+}
+.const .logo:hover {
+  width: 410px;
 }

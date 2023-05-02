@@ -13,13 +13,11 @@ const NavBar = () => {
 
     try {
       if (!number) {
-        const resp = await axios.get(
-          `http://localhost:3001/pokemons?name=${busca}`
-        );
+        const resp = await axios.get(`/pokemons?name=${busca}`);
         const { data } = resp;
         dispatch(search(data));
       } else {
-        const resp = await axios.get(`http://localhost:3001/pokemons/${busca}`);
+        const resp = await axios.get(`/pokemons/${busca}`);
         const { data } = resp;
         console.log(resp.data);
         dispatch(search(data));
