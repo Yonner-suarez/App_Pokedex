@@ -14,53 +14,63 @@ const getPokemons = async () => {
   let fullPok = [];
   let pok;
 
-  const res = await axios.get(`${URL}?limit=300`);
+  let nextUrl = `${URL}?limit=100`;
 
-  const { results } = res.data;
+  while (nextUrl) {
+    try {
+      const res = await axios.get(nextUrl);
 
-  const url = results.map((url) => url.url);
+      const { results, next } = res.data;
 
-  const resp = await axios.all(url.map((url) => axios.get(url)));
+      const url = results.map((url) => url.url);
 
-  const data = resp.map((info) => info.data);
+      const resp = await axios.all(url.map((url) => axios.get(url)));
 
-  const info = data.map((perso) => {
-    const newObj = perso.types.map((ele) => {
-      return {
-        slot: ele.slot,
-        name: ele.type.name,
-      };
-    });
-    pok = {
-      id: perso.id,
-      name: perso.name,
-      image: perso.sprites.other.dream_world.front_default,
-      vida: perso.stats[0]?.base_stat,
-      ataque: perso.stats[1]?.base_stat,
-      defensa: perso.stats[2]?.base_stat,
-      velocidad: perso.base_experience,
-      altura: perso.height,
-      peso: perso.weight,
-      Types: newObj,
-    };
+      const data = resp.map((info) => info.data);
 
-    return pok;
-  });
+      const info = data.map((perso) => {
+        const newObj = perso.types.map((ele) => {
+          return {
+            slot: ele.slot,
+            name: ele.type.name,
+          };
+        });
+        pok = {
+          id: perso.id,
+          name: perso.name,
+          image: perso.sprites.other["official-artwork"]["front_default"],
+          vida: perso.stats[0]?.base_stat,
+          ataque: perso.stats[1]?.base_stat,
+          defensa: perso.stats[2]?.base_stat,
+          velocidad: perso.base_experience,
+          altura: perso.height,
+          peso: perso.weight,
+          Types: newObj,
+        };
 
-  const dbPok = await Pokemon.findAll({
-    include: {
-      model: Type,
-      through: {
-        attributes: [],
-      },
-    },
-  });
+        return pok;
+      });
 
-  const busca = dbPok.map((pok) => pok.dataValues);
+      const dbPok = await Pokemon.findAll({
+        include: {
+          model: Type,
+          through: {
+            attributes: [],
+          },
+        },
+      });
 
-  fullPok.push(...busca, ...info);
-  cachePokemons = fullPok;
+      const busca = dbPok.map((pok) => pok.dataValues);
 
+      fullPok.push(...busca, ...info);
+      cachePokemons = fullPok;
+
+      nextUrl = next;
+    } catch (error) {
+      nextUrl = null;
+      return error.message;
+    }
+  }
   return fullPok;
 };
 
@@ -94,29 +104,27 @@ module.exports = {
 ! velocidad =resp.data.base_experience
 */
 
-/*
-  .then((res) => {
-        promises = res.map((url) => axios.get(url));
-        return promises;
-      })
-      .then((promisesP) => {
-        Promise.all(promisesP).then((resp) => {
-          resp.forEach((resp) => {
-            allPok.push({
-              id: resp.data.id,
-              name: resp.data.name,
-              image: resp.data.sprites.other.dream_world.front_default,
-              vida: resp.data.stats[0]?.base_stat,
-              ataque: resp.data.stats[1]?.base_stat,
-              defensa: resp.data.stats[2]?.base_stat,
-              velocidad: resp.data.base_experience,
-              altura: resp.data.height,
-              peso: resp.data.weight,
-              tipo: resp.data.types[0]?.type.name,
-            });
-          });
-          res.status(200).json(allPok);
-      });
-      })
-!!!! con promise.all()
-*/
+//   .then((res) => {
+//         promises = res.map((url) => axios.get(url));
+//         return promises;
+//       })
+//       .then((promisesP) => {
+//         Promise.all(promisesP).then((resp) => {
+//           resp.forEach((resp) => {
+//             allPok.push({
+//               id: resp.data.id,
+//               name: resp.data.name,
+//               image: resp.data.sprites.other.dream_world.front_default,
+//               vida: resp.data.stats[0]?.base_stat,
+//               ataque: resp.data.stats[1]?.base_stat,
+//               defensa: resp.data.stats[2]?.base_stat,
+//               velocidad: resp.data.base_experience,
+//               altura: resp.data.height,
+//               peso: resp.data.weight,
+//               tipo: resp.data.types[0]?.type.name,
+//             });
+//           });
+//           res.status(200).json(allPok);
+//       });
+//       })
+//! con promise.all()

@@ -18,6 +18,8 @@ const HomePage = () => {
   const { pokemonsAll, numPage, types, copyPokemonsAll, search } = useSelector(
     (state) => state
   );
+
+
   let inicio = (numPage - 1) * 12,
     hasta = numPage * 12;
 

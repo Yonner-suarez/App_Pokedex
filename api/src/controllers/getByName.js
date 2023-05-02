@@ -48,7 +48,7 @@ const getByName = async (name) => {
         {
           id: data.id,
           name: data.name,
-          image: data.sprites.other.dream_world.front_default,
+          image: data.sprites.other["official-artwork"]["front_default"],
           vida: data.stats[0]?.base_stat,
           ataque: data.stats[1]?.base_stat,
           defensa: data.stats[2]?.base_stat,

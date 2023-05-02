@@ -44,7 +44,7 @@ const Paginado = ({ catidadPages }) => {
         Previus
       </button>
       <p>
-        {numPage} OF {catidadPages}
+        {numPage} OF {catidadPages + 1}
       </p>
       <button
         onClick={next}

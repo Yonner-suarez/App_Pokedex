@@ -15,7 +15,7 @@ const validations = (form, errors, setErrors) => {
     error.image = "Input link of image";
   } else if (
     !/^(ftp|http|https):\/\/[^ "]+$/ ||
-    !/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|svg)/.test(form.image)
+    !/(http(s?):)([/|.|\w|\s|-])*\.(?:jpg|gif|png|svg|jpeg)/.test(form.image)
   ) {
     error.image = "Link invalid";
   } else {

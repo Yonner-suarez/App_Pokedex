@@ -7,11 +7,6 @@ const { URL } = process.env;
 
 const getPokemonsId = async (idPokemon) => {
   if (idPokemon % 1 === 0) {
-    // if (cachePokemons) {
-    //   cachePokemons = cachePokemons.filter((po) => po.id === idPokemon);
-    //   console.log(cachePokemons);
-    //   return cachePokemons;
-    // }
     try {
       const pokemonId = await axios.get(
         `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
@@ -26,7 +21,8 @@ const getPokemonsId = async (idPokemon) => {
       const pok = {
         id: pokemonId.data.id,
         name: pokemonId.data.name,
-        image: pokemonId.data.sprites.other.dream_world.front_default,
+        image:
+          pokemonId.data.sprites.other["official-artwork"]["front_default"],
         vida: pokemonId.data.stats[0]?.base_stat,
         ataque: pokemonId.data.stats[1]?.base_stat,
         defensa: pokemonId.data.stats[2]?.base_stat,
