@@ -37,7 +37,6 @@ pokemonRouter.get("/:idPokemon", async (req, res) => {
   const { idPokemon } = req.params;
   try {
     const getId = await getPokemonsId(idPokemon);
-    console.log(getId);
     res.status(200).json(getId);
   } catch (error) {
     res.status(404).json({ error: error.message });

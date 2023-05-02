@@ -14,7 +14,7 @@ const getPokemons = async () => {
   let fullPok = [];
   let pok;
 
-  const res = await axios.get(`${URL}?limit=400`);
+  const res = await axios.get(`${URL}?limit=300`);
 
   const { results } = res.data;
 

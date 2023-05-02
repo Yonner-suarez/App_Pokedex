@@ -16,29 +16,33 @@ const Cards = ({ allPokemons, search }) => {
           AllPokemons
         </button>
       </div>
-      {Array.isArray(search) && search.length
-        ? search.map((obj) => {
-            return (
-              <Card
-                key={obj.id}
-                id={obj.id}
-                name={obj.name}
-                tipo={obj.Types}
-                image={obj?.image}
-              />
-            );
-          })
-        : allPokemons.map((pok) => {
-            return (
-              <Card
-                key={pok.id}
-                id={pok.id}
-                name={pok.name}
-                tipo={pok.Types}
-                image={pok.image}
-              />
-            );
-          })}
+      {Array.isArray(search) && search.length ? (
+        search.map((obj) => {
+          return (
+            <Card
+              key={obj.id}
+              id={obj.id}
+              name={obj.name}
+              tipo={obj.Types}
+              image={obj?.image}
+            />
+          );
+        })
+      ) : !allPokemons.length ? (
+        <span className={style.loader}></span>
+      ) : (
+        allPokemons.map((pok) => {
+          return (
+            <Card
+              key={pok.id}
+              id={pok.id}
+              name={pok.name}
+              tipo={pok.Types}
+              image={pok.image}
+            />
+          );
+        })
+      )}
     </div>
   );
 };
