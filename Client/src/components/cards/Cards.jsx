@@ -29,7 +29,11 @@ const Cards = ({ allPokemons, search }) => {
           );
         })
       ) : !allPokemons.length ? (
-        <span className={style.loader}></span>
+        <img
+          src="https://c.tenor.com/XjV2_OLEE_EAAAAC/spin-loading.gif"
+          alt=""
+          className={style.img}
+        />
       ) : (
         allPokemons.map((pok) => {
           return (

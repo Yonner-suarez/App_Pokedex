@@ -1,5 +1,5 @@
 .contenedor {
-  background-color: transparent;
+  background-color: rgba(0, 255, 255, 0.45);
   display: flex;
   flex-direction: row;
   align-items: center;

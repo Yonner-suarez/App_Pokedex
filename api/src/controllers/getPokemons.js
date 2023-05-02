@@ -6,7 +6,7 @@ const { URL } = process.env;
 
 let cachePokemons = null;
 
-const getPokemons = async () => {
+const getPokemonsApi = async () => {
   if (cachePokemons) {
     return cachePokemons;
   }
@@ -51,18 +51,7 @@ const getPokemons = async () => {
         return pok;
       });
 
-      const dbPok = await Pokemon.findAll({
-        include: {
-          model: Type,
-          through: {
-            attributes: [],
-          },
-        },
-      });
-
-      const busca = dbPok.map((pok) => pok.dataValues);
-
-      fullPok.push(...busca, ...info);
+      fullPok.push(...info);
       cachePokemons = fullPok;
 
       nextUrl = next;
@@ -72,6 +61,33 @@ const getPokemons = async () => {
     }
   }
   return fullPok;
+};
+
+const getPokemonsByBdd = async () => {
+  try {
+    const dbPok = await Pokemon.findAll({
+      include: {
+        model: Type,
+        through: {
+          attributes: [],
+        },
+      },
+    });
+
+    const busca = dbPok.map((pok) => pok.dataValues);
+    return busca;
+  } catch (error) {
+    return error;
+  }
+};
+
+const getPokemons = async () => {
+  const poke = await getPokemonsApi();
+  const pokBdd = await getPokemonsByBdd();
+
+  const allpoks = [...pokBdd, ...poke];
+
+  return allpoks;
 };
 
 module.exports = {

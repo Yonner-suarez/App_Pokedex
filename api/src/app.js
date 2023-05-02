@@ -17,7 +17,8 @@ server.use(morgan("dev"));
 server.use((req, res, next) => {
   res.header(
     "Access-Control-Allow-Origin",
-    "https://app-pokedex-one.vercel.app"
+    "http://localhost:3000"
+    // "https://app-pokedex-iota.vercel.app"
   ); // update to match the domain you will make the request from
   res.header("Access-Control-Allow-Credentials", "true");
   res.header(

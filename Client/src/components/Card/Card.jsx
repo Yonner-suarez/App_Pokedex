@@ -6,7 +6,15 @@ const Card = ({ id, name, image, tipo }) => {
     <div className={style.contenedor}>
       <Link to={`/detailPokemon/${id}`} className={style.link}>
         <div className={style.contenedor1}>
-          <img src={image} alt={name} className={style.img} />
+          <img
+            src={
+              image
+                ? image
+                : "https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
+            }
+            alt={name}
+            className={style.img}
+          />
         </div>
         <h3>{name}</h3>
         <h3>Tipos:</h3>

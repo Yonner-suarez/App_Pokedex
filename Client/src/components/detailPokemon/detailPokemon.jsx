@@ -43,7 +43,14 @@ const DetailPokemmon = () => {
                 })}
               </div>
               <div className={style.contenedor2}>
-                <img src={pok.image} alt={pok.name} />
+                <img
+                  src={
+                    pok.image
+                      ? pok.image
+                      : "https://i.pinimg.com/originals/95/d5/cd/95d5cded00f3a3e8a98fb1eed568aa9f.png"
+                  }
+                  alt={pok.name}
+                />
               </div>
               <div className={style.contenedor3}>
                 <h4>VELOCIDAD |{pok.velocidad}</h4>
