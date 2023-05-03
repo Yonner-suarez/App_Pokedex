@@ -2,6 +2,7 @@ import style from "./landing.module.css";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { getTypes } from "../../Redux/action";
+import { Link } from "react-router-dom";
 
 const LandingPage = ({ navigate }) => {
   const dispatch = useDispatch();
@@ -19,8 +20,6 @@ const LandingPage = ({ navigate }) => {
         />
       </div>
 
-      <hr />
-
       <div className={style.const}>
         <img
           src={
@@ -28,15 +27,24 @@ const LandingPage = ({ navigate }) => {
           }
           alt=""
           className={style.logo}
-          onClick={navigate}
         />
 
-        <form className={style.form}>
-          <label htmlFor="">User Name</label>
-          <input type="text" />
-          <label htmlFor="">Password</label>
-          <input type="text" />
-        </form>
+        <div className={style.contform}>
+          <form className={style.form}>
+            <p>Welcome</p>
+            <br />
+            <input
+              type="text"
+              placeholder="User Name"
+              className={style.input}
+            />
+            <br />
+            <input type="text" placeholder="Password" className={style.input} />
+          </form>
+          <Link to="/singUp">
+            <button className={style.botonL}>SingUp</button>
+          </Link>
+        </div>
 
         <img
           src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"

@@ -10,6 +10,12 @@
   margin-top: 20px;
   margin-left: 250px;
 }
+h4 {
+  color: #fff;
+  margin-bottom: 20px;
+  font-family: cursive;
+  font-size: x-large;
+}
 .checkbox1 {
   display: inline-flex;
   position: relative;
@@ -24,12 +30,16 @@
 }
 .contenedorImg {
   background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 350px;
 }
 .img {
   width: 350px;
   height: 400px;
-  margin-right: 5em;
+  margin-right: 5px;
 }
 .img:hover {
   background: rgba(0, 229, 255, 0.248);
@@ -39,12 +49,16 @@
 }
 
 h2 {
+  margin-left: 230px;
   background-color: transparent;
+  width: 350px;
   font-family: cursive;
   font-size: xx-large;
+  display: flex;
+  flex-direction: row;
 }
 .form {
-  margin-left: 80px;
+  margin-left: 40px;
 }
 
 .form {
@@ -67,6 +81,8 @@ h2 {
   border: 2px solid black;
   width: 300px;
   float: right;
+  border: none;
+  outline: none;
 }
 h5 {
   margin: 0;
@@ -103,5 +119,22 @@ h5 {
   cursor: not-allowed;
 }
 .link {
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
+}
+.input {
+  outline: none;
+  border: none;
+
+  font-size: 18px;
   color: white;
+
+  background: linear-gradient(21deg, #10abff9b, #1beabd9b);
+
+  padding: 8px;
+
+  display: inline-block;
+
+  border-radius: 9999em;
 }

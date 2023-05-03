@@ -5,6 +5,7 @@ import LandingPage from "./components/landingPage/landingPage";
 import NavBar from "./components/NavBar/NavBar";
 import HomePage from "./components/HomePage/HomePage";
 import Instructions from "./components/Instructions/instructions";
+import SingUp from "./components/SingUp/SingUp";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
@@ -41,6 +42,7 @@ function App() {
         <Route path="/DetailPokemon/:id" element={<DetailPokemmon />} />
         <Route path="/Add" element={<Form postPok={postPok} />} />
         <Route path="/Instructions" element={<Instructions />} />
+        <Route path="/SingUp" element={<SingUp />} />
       </Routes>
     </div>
   );

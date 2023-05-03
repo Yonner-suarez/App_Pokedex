@@ -43,7 +43,7 @@ h3 {
   text-transform: uppercase;
 }
 h5 {
-  color: #000;
+  color: #fff;
   font-size: 18px;
   margin: 5px;
   font-family: cursive;
@@ -55,6 +55,9 @@ h5 {
   justify-content: center;
   align-items: center;
   width: 60px;
+  padding-left: 10px;
+  padding-right: 10px;
+  background: black;
 }
 .contenedor .tipos {
   display: inline-flex;
