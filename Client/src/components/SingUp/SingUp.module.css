@@ -61,15 +61,6 @@
     0 0 40px rgba(0, 229, 255, 0.304), 0 0 80px rgba(0, 229, 255, 0.233);
   transition-delay: 0.25s;
 }
-
-/* .input {
-  height: 30px;
-  width: 230px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-}
-*/
 .input::placeholder {
   color: rgb(3, 2, 2);
   font-size: 16px;
