@@ -1,5 +1,6 @@
 const axios = require("axios");
 const { Pokemon, Type } = require("../db");
+
 require("dotenv").config();
 
 const { URL_BASE } = process.env;
@@ -18,36 +19,37 @@ const getPokemonsApi = async () => {
 
   while (nextUrl) {
     try {
-      const res = await axios.get(nextUrl);
+      const resp = await axios.get(nextUrl);
 
-      const { results, next } = res.data;
+      const { results, next } = resp.data;
 
-      const url = results.map((url) => url.url);
+      const urls = results.map((result) => result.url);
 
-      const resp = await axios.all(url.map((url) => axios.get(url)));
+      const respuesta = await Promise.all(
+        urls.map(async (url) => await axios.get(url))
+      );
 
-      const data = resp.map((info) => info.data);
+      const data = respuesta.map((info) => info.data);
 
-      const info = data.map((perso) => {
-        const newObj = perso.types.map((ele) => {
+      const info = data.map((personaje) => {
+        const newObj = personaje.types.map((ele) => {
           return {
             slot: ele.slot,
             name: ele.type.name,
           };
         });
         pok = {
-          id: perso.id,
-          name: perso.name,
-          image: perso.sprites.other["official-artwork"]["front_default"],
-          vida: perso.stats[0]?.base_stat,
-          ataque: perso.stats[1]?.base_stat,
-          defensa: perso.stats[2]?.base_stat,
-          velocidad: perso.base_experience,
-          altura: perso.height,
-          peso: perso.weight,
+          id: personaje.id,
+          name: personaje.name,
+          image: personaje.sprites.other["official-artwork"]["front_default"],
+          vida: personaje.stats[0]?.base_stat,
+          ataque: personaje.stats[1]?.base_stat,
+          defensa: personaje.stats[2]?.base_stat,
+          velocidad: personaje.base_experience,
+          altura: personaje.height,
+          peso: personaje.weight,
           Types: newObj,
         };
-
         return pok;
       });
 
@@ -74,20 +76,31 @@ const getPokemonsByBdd = async () => {
       },
     });
 
+    if (dbPok.length === 0) return [];
+
     const busca = dbPok.map((pok) => pok.dataValues);
+
     return busca;
   } catch (error) {
-    return error;
+    console.log(error);
   }
 };
 
 const getPokemons = async () => {
-  const poke = await getPokemonsApi();
-  const pokBdd = await getPokemonsByBdd();
+  try {
+    const poke = await getPokemonsApi();
+    const pokBdd = await getPokemonsByBdd();
 
-  const allpoks = [...pokBdd, ...poke];
+    if (pokBdd.length === 0) {
+      const soloApi = [...poke];
+      return soloApi;
+    }
 
-  return allpoks;
+    const allpoks = [...pokBdd, ...poke];
+    return allpoks;
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 module.exports = {

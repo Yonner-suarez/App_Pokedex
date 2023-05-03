@@ -10,3 +10,4 @@ export const FILTER_FOR_API = "FILTER_FOR_API";
 export const PREVIUS_PAGE = "PREVIUS_PAGE";
 export const NEXT_TEN_PAGES = "NEXT_TEN_PAGES";
 export const PREVIUS_PAGE_TEN = "PREVIUS_PAGE_TEN";
+export const USER = "USER";

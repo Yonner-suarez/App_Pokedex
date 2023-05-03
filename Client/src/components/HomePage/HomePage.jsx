@@ -19,15 +19,12 @@ const HomePage = () => {
     (state) => state
   );
 
-
   let inicio = (numPage - 1) * 12,
     hasta = numPage * 12;
 
   let catidadPages = Math.floor(pokemonsAll.length / 12);
 
   let viewPokemons = pokemonsAll.slice(inicio, hasta);
-
-  let catidadPages1 = Math.floor(copyPokemonsAll.length / 12);
 
   let viewPokemons1 = copyPokemonsAll.slice(inicio, hasta);
 

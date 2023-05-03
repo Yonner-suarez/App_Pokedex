@@ -11,23 +11,38 @@ import {
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";
+import { getUser } from "./Redux/action";
+import { useDispatch } from "react-redux";
 
 axios.defaults.baseURL = "http://localhost:3001";
 
 function App() {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     navigate("/");
   }, []);
 
-  const handleChange = () => {
-    navigate("/homePage");
+  const login = async (userName, password) => {
+    try {
+      const accesso = await axios.get(
+        `/user?userName=${userName}&password=${password}`
+      );
+      if (accesso.data.access) {
+        navigate("/homePage");
+        dispatch(getUser(accesso.data.user));
+      } else {
+        alert("incorrect User");
+      }
+    } catch (error) {
+      alert(error.message);
+    }
   };
 
-  const postPok = async (pok) => {
+  const postPok = async (pok, { userName, password }) => {
     try {
-      const resp = await axios.post("/pokemons", pok);
+      const resp = await axios.post("/pokemons", { pok, userName, password });
       alert(resp.data.message);
     } catch (error) {
       alert(error.message);
@@ -39,7 +54,7 @@ function App() {
     <div className="App">
       {pathname === "/homePage" && <NavBar />}
       <Routes>
-        <Route path="/" element={<LandingPage navigate={handleChange} />} />
+        <Route path="/" element={<LandingPage login={login} />} />
         <Route path="/homePage" element={<HomePage />} />
         <Route path="/DetailPokemon/:id" element={<DetailPokemmon />} />
         <Route path="/Add" element={<Form postPok={postPok} />} />

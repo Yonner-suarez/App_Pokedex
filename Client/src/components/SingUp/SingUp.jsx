@@ -32,8 +32,9 @@ const SingUp = () => {
 
   const onSub = async (event) => {
     try {
-      await axios.post("/user", user);
-      alert("You can start your adventure");
+      const resp = await axios.post("/user", user);
+
+      alert(resp.data);
       event && navigate("/");
     } catch (error) {
       alert(error.message);

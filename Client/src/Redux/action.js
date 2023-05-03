@@ -13,6 +13,7 @@ const {
   SEARCH_POK,
   PREVIUS_PAGE_TEN,
   NEXT_TEN_PAGES,
+  USER,
 } = require("./types");
 
 export const getPokemons = () => {
@@ -102,5 +103,11 @@ export const filterForApiOrBdd = (filtrado) => {
   return {
     type: FILTER_FOR_API,
     payload: filtrado,
+  };
+};
+export const getUser = (user) => {
+  return {
+    type: USER,
+    payload: user,
   };
 };

@@ -11,6 +11,7 @@ import {
   FILTER_FOR_API,
   NEXT_TEN_PAGES,
   PREVIUS_PAGE_TEN,
+  USER,
 } from "./types";
 
 const initialState = {
@@ -20,6 +21,7 @@ const initialState = {
   types: [],
   numPage: 1,
   search: [],
+  user:{}
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -144,6 +146,11 @@ const rootReducer = (state = initialState, action) => {
         copyPokemonsAll: state.copyPokemonsAll,
         search: [],
       };
+    case USER:
+      return {
+        ...state,
+        user: action.payload
+      }
     default:
       return {
         ...state,

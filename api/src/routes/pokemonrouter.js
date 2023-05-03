@@ -12,16 +12,19 @@ const pokemonRouter = Router();
 
 pokemonRouter.get("/", async (req, res) => {
   const { name } = req.query;
+  console.log(req.params);
 
   if (!name) {
-    const allPok = await getPokemons();
+    try {
+      const allPok = await getPokemons();
 
-    console.log(allPok);
-
-    if (!allPok.length) {
-      return res.status(404).json(`Algo salio mal`);
+      if (!allPok.length) {
+        return res.status(404).json(`Algo salio mal`);
+      }
+      return res.status(200).json(allPok);
+    } catch (error) {
+      res.status(500).json({ error: error.message });
     }
-    return res.status(200).json(allPok);
   }
 
   if (name) {
@@ -47,25 +50,32 @@ pokemonRouter.get("/:idPokemon", async (req, res) => {
 
 //?Ruta para agregar un Pokemon a la BDD
 pokemonRouter.post("/", async (req, res) => {
+  const { pok, userName, password } = req.body;
+  //name, image, vida, ataque, defensa, velocidad, altura, peso, tipo
+
   const { name, image, vida, ataque, defensa, velocidad, altura, peso, tipo } =
-    req.body;
+    pok;
 
   if (![name, image, vida, ataque, defensa].every(Boolean)) {
     res.status(400).json({ Error: "Faltan datos" });
   }
 
   try {
-    const agrega = await postPokemon({
-      name,
-      image,
-      vida,
-      ataque,
-      defensa,
-      velocidad,
-      altura,
-      peso,
-      tipo,
-    });
+    const agrega = await postPokemon(
+      {
+        name,
+        image,
+        vida,
+        ataque,
+        defensa,
+        velocidad,
+        altura,
+        peso,
+        tipo,
+      },
+      userName,
+      password
+    );
     res.status(200).json(agrega);
   } catch (error) {
     res.status(400).json({ Error: error.message });

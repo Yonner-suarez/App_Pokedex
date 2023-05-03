@@ -10,14 +10,14 @@ module.exports = (sequelize) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      userName: {
         type: DataTypes.STRING,
         allowNull: false,
       },
       password: {
         type: DataTypes.STRING,
-        allowNull:false
-      }
+        allowNull: false,
+      },
     },
     {
       timestamps: false,

@@ -5,7 +5,7 @@ import validations from "./validations";
 import { Link } from "react-router-dom";
 
 const Form = ({ postPok }) => {
-  const { types } = useSelector((state) => state);
+  const { types, user } = useSelector((state) => state);
 
   const [newPok, setNewPok] = useState({
     name: "",
@@ -69,7 +69,7 @@ const Form = ({ postPok }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    postPok(newPok);
+    postPok(newPok, user);
   };
 
   return (

@@ -1,15 +1,30 @@
 import style from "./landing.module.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { getTypes } from "../../Redux/action";
 import { Link } from "react-router-dom";
 
-const LandingPage = ({ navigate }) => {
+const LandingPage = ({ login }) => {
   const dispatch = useDispatch();
+
+  const [log, setLog] = useState({
+    userName: "",
+    password: "",
+  });
 
   useEffect(() => {
     dispatch(getTypes());
   }, []);
+
+  const onChange = (event) => {
+    const key = event.target.name,
+      value = event.target.value;
+
+    setLog({
+      ...log,
+      [key]: value,
+    });
+  };
   return (
     <div className={style.contenedor}>
       <div className={style.imgcont}>
@@ -35,11 +50,21 @@ const LandingPage = ({ navigate }) => {
             <br />
             <input
               type="text"
+              name="userName"
+              value={log.userName}
+              onChange={onChange}
               placeholder="User Name"
               className={style.input}
             />
             <br />
-            <input type="text" placeholder="Password" className={style.input} />
+            <input
+              type="text"
+              name="password"
+              value={log.password}
+              onChange={onChange}
+              placeholder="Password"
+              className={style.input}
+            />
           </form>
           <Link to="/singUp">
             <button className={style.botonL}>SingUp</button>
@@ -49,7 +74,7 @@ const LandingPage = ({ navigate }) => {
         <img
           src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"
           alt=""
-          onClick={navigate}
+          onClick={() => login(log.userName, log.password)}
           className={style.boton}
         />
       </div>
