@@ -60,3 +60,6 @@ h2 {
 .const .logo:hover {
   width: 410px;
 }
+.form {
+  background-color: rgba(240, 248, 255, 0.597);
+}

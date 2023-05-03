@@ -31,6 +31,13 @@ const LandingPage = ({ navigate }) => {
           onClick={navigate}
         />
 
+        <form className={style.form}>
+          <label htmlFor="">User Name</label>
+          <input type="text" />
+          <label htmlFor="">Password</label>
+          <input type="text" />
+        </form>
+
         <img
           src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"
           alt=""
