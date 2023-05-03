@@ -12,7 +12,6 @@ const pokemonRouter = Router();
 
 pokemonRouter.get("/", async (req, res) => {
   const { name } = req.query;
-  console.log(req.params);
 
   if (!name) {
     try {

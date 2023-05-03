@@ -15,6 +15,10 @@ const Cards = ({ allPokemons, search }) => {
         <button className={style.all} onClick={onClick}>
           AllPokemons
         </button>
+        <br />
+        <br />
+        <br />
+        <br />
       </div>
       {Array.isArray(search) && search.length ? (
         search.map((obj) => {
