@@ -12,7 +12,7 @@ const DetailPokemmon = () => {
 
   useEffect(() => {
     axios
-      .get(`https://apppokedex-production.up.railway.app/pokemons${id}`)
+      .get(`https://apppokedex-production.up.railway.app/pokemons/${id}`)
       .then(({ data }) => {
         if (data) {
           setDetailPok(data);
