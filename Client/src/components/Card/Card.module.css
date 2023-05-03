@@ -6,7 +6,7 @@
   position: relative;
   justify-content: center;
   margin: 10px;
-  width: 280px;
+  width: 290px;
   height: 250px;
   margin-bottom: 50px;
   padding-left: 0;
@@ -19,15 +19,15 @@
 }
 .contenedor1 {
   width: 200px;
-  margin-top: -55px;
+  margin-top: -65px;
   align-items: center;
   justify-content: center;
 }
 
 .img {
-  height: 130px;
-  width: 130px;
-  margin-top: 30px;
+  height: 150px;
+  width: 150px;
+  margin-top: 20px;
   cursor: pointer;
 }
 .img:hover {

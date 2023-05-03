@@ -16,6 +16,8 @@ pokemonRouter.get("/", async (req, res) => {
   if (!name) {
     const allPok = await getPokemons();
 
+    console.log(allPok);
+
     if (!allPok.length) {
       return res.status(404).json(`Algo salio mal`);
     }

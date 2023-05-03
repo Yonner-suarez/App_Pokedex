@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const { getTypes } = require("../controllers/allControllers");
-
+const routerUser = require("./userRouter");
 const pokemonRouter = require("./pokemonrouter");
 
 const router = Router();
@@ -14,5 +14,6 @@ router.get("/types", async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 });
+router.use("/user", routerUser);
 
 module.exports = router;

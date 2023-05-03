@@ -95,7 +95,7 @@ const Form = ({ postPok }) => {
         />
       </div>
       <form onSubmit={handleSubmit} className={style.form}>
-        <h4>Let´s Go</h4>
+        <h4 className={style.h4}>Let´s Go</h4>
         <label>
           <span className={style.span}>Name: </span>
 

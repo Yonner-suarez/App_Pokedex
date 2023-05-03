@@ -1,11 +1,13 @@
 import "./App.css";
-import Form from "./components/Form/form";
-import DetailPokemmon from "./components/detailPokemon/detailPokemon";
-import LandingPage from "./components/landingPage/landingPage";
-import NavBar from "./components/NavBar/NavBar";
-import HomePage from "./components/HomePage/HomePage";
-import Instructions from "./components/Instructions/instructions";
-import SingUp from "./components/SingUp/SingUp";
+import {
+  Form,
+  DetailPokemmon,
+  HomePage,
+  Instructions,
+  LandingPage,
+  NavBar,
+  SingUp,
+} from "./components/allComponents/allComponents";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import axios from "axios";

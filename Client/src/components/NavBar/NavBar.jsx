@@ -23,7 +23,7 @@ const NavBar = () => {
         dispatch(search(data));
       }
     } catch (error) {
-      alert("Revisa los datos ingresados", error.message);
+      alert("Review the data entered", error.message);
     }
   };
   return (

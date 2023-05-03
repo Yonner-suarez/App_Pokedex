@@ -15,7 +15,7 @@ const DetailPokemmon = () => {
       if (data) {
         setDetailPok(data);
       } else {
-        window.alert("No hay personajes con ese ID");
+        window.alert("There are no characters with that ID");
       }
     });
   }, [id]);
