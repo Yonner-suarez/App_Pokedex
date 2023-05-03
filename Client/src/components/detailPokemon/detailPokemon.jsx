@@ -11,13 +11,15 @@ const DetailPokemmon = () => {
   const [detailPok, setDetailPok] = useState([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:3001/pokemons/${id}`).then(({ data }) => {
-      if (data) {
-        setDetailPok(data);
-      } else {
-        window.alert("There are no characters with that ID");
-      }
-    });
+    axios
+      .get(`https://apppokedex-production.up.railway.app/pokemons${id}`)
+      .then(({ data }) => {
+        if (data) {
+          setDetailPok(data);
+        } else {
+          window.alert("There are no characters with that ID");
+        }
+      });
   }, [id]);
 
   return (
