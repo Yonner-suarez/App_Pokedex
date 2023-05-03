@@ -20,13 +20,6 @@ const getByName = async (name) => {
     });
 
     if (db) {
-      // const newObj = await db.Types.map((ele) => {
-      //   return {
-      //     slot: ele.slot,
-      //     name: ele.type.name,
-      //   };
-      // });
-
       const pok = {
         id: db.id,
         name: db.name,
@@ -44,9 +37,7 @@ const getByName = async (name) => {
 
       return [pok];
     } else {
-      const resp = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${nameToLOwerCase}`
-      );
+      const resp = await axios.get(`${URL_BASE}/${nameToLOwerCase}`);
       const { data } = resp;
       const pokemonName = [
         {

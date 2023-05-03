@@ -8,9 +8,7 @@ const { URL_BASE } = process.env;
 const getPokemonsId = async (idPokemon) => {
   if (idPokemon % 1 === 0) {
     try {
-      const pokemonId = await axios.get(
-        `https://pokeapi.co/api/v2/pokemon/${idPokemon}`
-      );
+      const pokemonId = await axios.get(`${URL_BASE}/${idPokemon}`);
       const newObj = pokemonId.data.types.map((ele) => {
         return {
           slot: ele.slot,

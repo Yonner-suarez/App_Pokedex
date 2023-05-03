@@ -7,7 +7,7 @@ const { URL_TYPES } = process.env;
 
 const getTypes = async () => {
   try {
-    const resp = await axios.get(`https://pokeapi.co/api/v2/type`);
+    const resp = await axios.get(`${URL_TYPES}`);
 
     for (tipo of resp.data.results) {
       const existe = await Type.findOne({ where: { name: tipo.name } });
