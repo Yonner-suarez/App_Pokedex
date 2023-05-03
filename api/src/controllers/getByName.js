@@ -44,7 +44,9 @@ const getByName = async (name) => {
 
       return [pok];
     } else {
-      const resp = await axios.get(`${URL_BASE}/${nameToLOwerCase}`);
+      const resp = await axios.get(
+        `https://pokeapi.co/api/v2/pokemon/${nameToLOwerCase}`
+      );
       const { data } = resp;
       const pokemonName = [
         {

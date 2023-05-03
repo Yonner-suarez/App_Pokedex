@@ -14,7 +14,7 @@ const getPokemonsApi = async () => {
   let fullPok = [];
   let pok;
 
-  let nextUrl = `${URL_BASE}?limit=100`;
+  let nextUrl = `https://pokeapi.co/api/v2/pokemon?limit=100`;
 
   while (nextUrl) {
     try {
