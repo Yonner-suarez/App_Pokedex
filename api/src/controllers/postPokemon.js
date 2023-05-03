@@ -5,15 +5,15 @@ const postPokemon = async (
   userName,
   password
 ) => {
-  const nameLower = name.toLowerCase();
+  name = name.toLowerCase();
 
   try {
-    const busca = await Pokemon.findOne({ where: { name: nameLower } });
+    const busca = await Pokemon.findOne({ where: { name: name } });
     if (busca) return { message: "El Pokemon ya existe" };
 
     if (!busca) {
       const newPokemon = await Pokemon.create({
-        nameLower,
+        name,
         vida,
         ataque,
         defensa,
@@ -28,12 +28,9 @@ const postPokemon = async (
         const buscaUser = await User.findOne({
           where: { userName: userName, password: password },
         });
-        console.log(buscaUser.id);
         await newPokemon.setUser(buscaUser.id);
         await newPokemon.addTypes(buscaNamesType.slot);
       }
-
-      console.log(newPokemon);
       return { message: "Pokemon creado exitosamente" };
     }
   } catch (error) {

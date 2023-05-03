@@ -50,7 +50,7 @@ pokemonRouter.get("/:idPokemon", async (req, res) => {
 //?Ruta para agregar un Pokemon a la BDD
 pokemonRouter.post("/", async (req, res) => {
   const { pok, userName, password } = req.body;
-  //name, image, vida, ataque, defensa, velocidad, altura, peso, tipo
+
 
   const { name, image, vida, ataque, defensa, velocidad, altura, peso, tipo } =
     pok;
