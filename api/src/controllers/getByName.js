@@ -7,6 +7,7 @@ const { URL_BASE } = process.env;
 
 const getByName = async (name) => {
   const nameToLOwerCase = name.toLowerCase();
+  console.log(name);
 
   try {
     const db = await Pokemon.findOne({
