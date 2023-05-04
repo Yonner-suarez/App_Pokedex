@@ -17,7 +17,6 @@ const Card = ({ id, name, image, tipo }) => {
           />
         </div>
         <h3>{name}</h3>
-        <h3>Tipos:</h3>
 
         {tipo.map((tip) => {
           return (
