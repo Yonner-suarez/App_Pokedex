@@ -17,9 +17,19 @@
 .allCont {
   background-color: transparent;
   margin-top: 10px;
+  width: 80%;
+  margin-bottom: 5%;
 }
 .option {
   background-color: rgba(0, 229, 255, 0.714);
   font-family: cursive;
   font-size: 15px;
+}
+@media screen and (max-width: 450px) {
+  .allCont {
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    margin-left: 5%;
+  }
 }
