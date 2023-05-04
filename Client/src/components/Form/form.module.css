@@ -1,5 +1,5 @@
 .formulario {
-  width: 1000px;
+  width: 80%;
   height: 700px;
   border: 2px solid white;
   background-color: rgba(0, 229, 255, 0.522);
@@ -137,4 +137,46 @@ h5 {
   display: inline-block;
 
   border-radius: 9999em;
+}
+@media screen and (max-width: 450px) {
+  .formulario {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+    margin-bottom: 2%;
+  }
+  .img {
+    width: 50%;
+  }
+  .input {
+    width: 20%;
+  }
+  .form {
+    background-color: transparent;
+    width: 90%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .form .input {
+    width: 40%;
+    height: auto;
+  }
+  .span {
+    font-size: medium;
+  }
+  .form .span {
+    width: 10%;
+  }
+  .checkbox {
+    width: 100%;
+  }
+  h2 {
+    font-size: medium;
+  }
+  .controlador {
+    font-size: medium;
+    color: red;
+  }
 }
