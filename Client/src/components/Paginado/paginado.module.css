@@ -4,11 +4,12 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 100%;
 }
 
 .next {
   background-color: rgba(0, 229, 255, 0.248);
-  width: 100px;
+  width: 20%;
   height: 40px;
 
   justify-content: center;
@@ -33,4 +34,21 @@ p {
   text-transform: uppercase;
   font-family: cursive;
   font-size: 20px;
+}
+@media screen and (max-width: 450px) {
+  .foot {
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    margin-left: 0%;
+  }
+  .next {
+    font-size: small;
+    width: 20%;
+    height: auto;
+  }
+  p {
+    width: 20%;
+    font-size: medium;
+  }
 }
