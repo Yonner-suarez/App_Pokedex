@@ -3,10 +3,10 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 88vh;
-  width: 78vw;
+  height: 80%;
+  width: 80%;
   margin: 0 auto;
-  margin-top: 30px;
+  margin-top: 3%;
 }
 .boton {
   display: flex;
@@ -112,14 +112,6 @@ h2 {
   transition-delay: 0.25s;
 }
 
-/* .input {
-  height: 30px;
-  width: 230px;
-  border: none;
-  border-radius: 10px;
-  outline: none;
-}
-*/
 .input::placeholder {
   color: white;
   font-size: 16px;
@@ -142,4 +134,81 @@ h2 {
   border-radius: 9999em;
   outline: none;
   border: none;
+}
+@media screen and (max-width: 1300px) {
+  .image {
+    display: none;
+  }
+  .imgcont {
+    background-image: url("https://th.bing.com/th/id/OIP.4dUWwOT2Vcm5a-k_QDneFgHaNK?pid=ImgDet&rs=1");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 60%;
+    height: auto;
+    margin-left: 16%;
+    margin-bottom: 10%;
+  }
+  .contenedor {
+    width: 90%;
+    margin-top: 12%;
+  }
+  .const {
+    width: 50%;
+    margin-right: 10%;
+  }
+}
+@media screen and (max-width: 960px) {
+  .image {
+    display: none;
+  }
+  .imgcont {
+    display: none;
+  }
+  .contenedor {
+    margin-top: 12%;
+    margin-left: 7%;
+    margin-bottom: 10%;
+  }
+}
+@media screen and (max-width: 400px) {
+  .image {
+    display: none;
+  }
+  .imgcont {
+    display: none;
+  }
+  .contenedor {
+    width: 100%;
+    margin-top: 25%;
+    margin-bottom: 30%;
+  }
+  .logo {
+    width: 90%;
+  }
+  .contform {
+    width: 90%;
+    margin-left: 6%;
+  }
+  .form {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 600px) {
+  .image {
+    display: none;
+  }
+  .imgcont {
+    display: none;
+  }
+  .contenedor {
+    width: 90%;
+    margin-top: 23%;
+    margin-left: 3%;
+  }
+  .contform {
+    margin-left: 15%;
+  }
+  .logo {
+    margin-left: 15%;
+  }
 }

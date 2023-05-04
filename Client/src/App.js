@@ -15,6 +15,7 @@ import { getUser } from "./Redux/action";
 import { useDispatch } from "react-redux";
 
 axios.defaults.baseURL = "https://apppokedex-production.up.railway.app/";
+//"https://localhost:3001"
 
 function App() {
   const dispatch = useDispatch();
