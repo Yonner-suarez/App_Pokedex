@@ -50,6 +50,7 @@
 
 h2 {
   text-transform: uppercase;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .logo {
   width: 400px;
@@ -97,7 +98,7 @@ h2 {
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 0.1em;
@@ -115,7 +116,7 @@ h2 {
 .input::placeholder {
   color: white;
   font-size: 16px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .input {
@@ -123,7 +124,7 @@ h2 {
 
   font-size: 16px;
   color: white;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   background: linear-gradient(21deg, #10abff9b, #1beabd9b);
 

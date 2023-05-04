@@ -20,7 +20,7 @@
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 0.4em;
@@ -48,7 +48,7 @@
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 0.4em;

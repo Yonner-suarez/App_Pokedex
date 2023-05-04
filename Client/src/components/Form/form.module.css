@@ -7,13 +7,13 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
   margin-top: 20px;
-  margin-left: 250px;
 }
 .h4 {
   color: #fff;
   margin-bottom: 20px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: x-large;
 }
 .checkbox1 {
@@ -27,6 +27,7 @@
   display: inline-flexbox;
   width: 500px;
   height: 120px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .contenedorImg {
   background-color: transparent;
@@ -49,13 +50,14 @@
 }
 
 h2 {
-  margin-left: 230px;
+  margin-right: 150px;
   background-color: transparent;
-  width: 350px;
-  font-family: cursive;
+  width: 400px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: xx-large;
   display: flex;
   flex-direction: row;
+  justify-content: center;
 }
 .form {
   margin-left: 40px;
@@ -70,7 +72,7 @@ h2 {
 .form .span {
   color: rgb(0, 0, 0);
   margin-right: 10px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: larger;
   width: auto;
 }
@@ -85,7 +87,7 @@ h2 {
   outline: none;
 }
 h5 {
-  margin: 0;
+  margin: 0 auto;
 }
 .boton {
   display: inline;
@@ -110,7 +112,7 @@ h5 {
 }
 .controlador {
   font-size: 15px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #fff;
 }
 .boton:disabled {
@@ -122,6 +124,7 @@ h5 {
   text-decoration: none;
   width: 50px;
   height: 50px;
+  margin-right: 20px;
 }
 .input {
   outline: none;
@@ -131,7 +134,7 @@ h5 {
   color: white;
 
   background: linear-gradient(21deg, #10abff9b, #1beabd9b);
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   padding: 8px;
 
   display: inline-block;
@@ -177,6 +180,5 @@ h5 {
   }
   .controlador {
     font-size: medium;
-    color: red;
   }
 }

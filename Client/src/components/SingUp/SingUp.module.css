@@ -47,7 +47,7 @@
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 0;
@@ -65,7 +65,7 @@
 .input::placeholder {
   color: rgb(3, 2, 2);
   font-size: 16px;
-  font-family: cursive;
+  font-family: curVerdana, Geneva, Tahoma, sans-serifsive;
 }
 
 .input {
@@ -73,7 +73,7 @@
 
   font-size: 16px;
   color: black;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   background: linear-gradient(21deg, #10abff9b, #1beabd9b);
 
@@ -88,10 +88,11 @@
 }
 p {
   color: #fff;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .span {
   color: red;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .contboton {
   background-color: transparent;

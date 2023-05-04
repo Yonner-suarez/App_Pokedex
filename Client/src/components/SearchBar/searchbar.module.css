@@ -15,7 +15,7 @@
   flex-direction: row;
   padding: 0 80px;
   font-size: 15px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   background-color: transparent;
   height: 50px;
   border-radius: 10px;
@@ -40,7 +40,7 @@
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   border-radius: 10px;

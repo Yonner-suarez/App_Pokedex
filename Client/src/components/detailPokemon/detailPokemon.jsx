@@ -37,7 +37,7 @@ const DetailPokemmon = () => {
                 <h4>NAME |{pok.name}</h4>
                 <h4>ATAQUE |{pok.ataque}</h4>
                 <h4>DEFENSA |{pok.defensa}</h4>
-                <h3>Tipo:</h3>
+                <h4>Tipo:</h4>
                 {pok.Types.map((tip) => {
                   return <h4>{tip.name}</h4>;
                 })}

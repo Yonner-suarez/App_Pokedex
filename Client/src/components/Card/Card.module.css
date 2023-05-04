@@ -39,7 +39,7 @@ h3 {
   color: #000;
   font-size: 18px;
   margin: 10px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: none;
   text-transform: uppercase;
 }
@@ -47,7 +47,7 @@ h5 {
   color: #fff;
   font-size: 18px;
   margin: 5px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-decoration: none;
 }
 .tipos {
@@ -72,7 +72,7 @@ h5 {
   text-decoration: none;
 }
 .link {
-  font-family: "Chiller";
+  font-family: "Verdana, Geneva, Tahoma, sans-serif";
   color: #000;
 }
 @media screen and (max-width: 500px) {

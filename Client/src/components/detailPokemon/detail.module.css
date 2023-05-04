@@ -21,6 +21,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   height: 70px;
   margin-top: 5px;
 }
@@ -50,6 +51,7 @@
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin-top: 39px;
   margin-bottom: 40px;
 }
@@ -83,7 +85,7 @@
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 0.4em;
@@ -102,6 +104,7 @@
 }
 h3 {
   color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 @media screen and (max-width: 1300px) {
   .fullCont {
@@ -184,8 +187,5 @@ h3 {
     width: 40%;
     height: auto;
     margin: 0 auto;
-  }
-  h3 {
-    display: none;
   }
 }

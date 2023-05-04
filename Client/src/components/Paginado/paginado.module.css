@@ -19,7 +19,7 @@
   color: aliceblue;
   font-size: 18px;
   font-size: 20px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .next:hover {
   background-color: rgba(0, 229, 255, 0.714);
@@ -32,7 +32,7 @@
 p {
   color: white;
   text-transform: uppercase;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 20px;
 }
 @media screen and (max-width: 450px) {

@@ -13,7 +13,7 @@
 p {
   color: white;
   font-size: larger;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-transform: none;
   margin: 1px;
   letter-spacing: 2px;
@@ -31,7 +31,7 @@ p {
   text-decoration: none;
   overflow: hidden;
   transition: 0.2s;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   border: none;
   cursor: pointer;
   margin: 1em;
@@ -101,9 +101,9 @@ h2 {
     height: auto;
   }
   p {
-    width: 60%;
+    width: 80%;
     text-align: center;
-    letter-spacing: normal;
+    letter-spacing: 1px;
   }
 
   .divimg {

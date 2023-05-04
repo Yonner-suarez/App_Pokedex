@@ -1,13 +1,13 @@
 .select {
   background-color: rgba(253, 253, 253, 0.503);
-  width: 190px;
+  width: 50%;
   height: 40px;
   border-radius: 5px;
   display: inline;
   margin: 1em;
   color: aliceblue;
   font-size: 15px;
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serifve;
   border-radius: 10px;
 }
 
@@ -23,7 +23,7 @@
 }
 .option {
   background-color: rgba(0, 229, 255, 0.714);
-  font-family: cursive;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   font-size: 15px;
 }
 @media screen and (max-width: 450px) {
