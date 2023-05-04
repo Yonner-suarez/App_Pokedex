@@ -170,7 +170,7 @@ h2 {
     margin-bottom: 10%;
   }
 }
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 450px) {
   .image {
     display: none;
   }
@@ -195,6 +195,9 @@ h2 {
   .const {
     background-color: transparent;
     width: 100%;
+  }
+  .boton {
+    margin-left: 20%;
   }
 }
 @media screen and (max-width: 600px) {
