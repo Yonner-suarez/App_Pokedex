@@ -1,5 +1,5 @@
 .contenedor {
-  background-color: transparent;
+  background-color: 100%;
   display: flex;
   flex-direction: row;
   width: 700px;
@@ -62,4 +62,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 600px) {
+  .contenedor {
+    width: 100%;
+    margin-top: 23%;
+    margin: 0 auto;
+  }
+  .boton {
+    width: 30%;
+  }
+  .input {
+    width: 70%;
+  }
 }

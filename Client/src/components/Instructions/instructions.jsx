@@ -25,7 +25,8 @@ const Instructions = () => {
       </p>
       <br />
       <p>
-        !What you´re waiting for to start this adventure?¡{" "}
+        !What you´re waiting for to start this adventure?¡
+        <br />
         <img
           src="https://th.bing.com/th/id/R.0bf6e45b8378d2ccaeeb4d5e8304a6d1?rik=bSJkwApB6QPmDg&pid=ImgRaw&r=0"
           alt=""
@@ -33,11 +34,13 @@ const Instructions = () => {
         />
       </p>
       <br />
-      <img
-        src="https://i0.wp.com/www.lacasadeel.net/wp-content/uploads/2021/12/10-curiosidades-de-Pokemon-que-quiza-no-conoces.jpg"
-        alt=""
-        className={style.img}
-      />
+      <div className={style.divimg}>
+        <img
+          src="https://i0.wp.com/www.lacasadeel.net/wp-content/uploads/2021/12/10-curiosidades-de-Pokemon-que-quiza-no-conoces.jpg"
+          alt=""
+          className={style.img}
+        />
+      </div>
     </div>
   );
 };

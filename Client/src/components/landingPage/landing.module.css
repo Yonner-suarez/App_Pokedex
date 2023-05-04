@@ -145,12 +145,12 @@ h2 {
     background-repeat: no-repeat;
     width: 60%;
     height: auto;
-    margin-left: 16%;
-    margin-bottom: 10%;
+    margin: 0 auto;
   }
   .contenedor {
     width: 90%;
-    margin-top: 12%;
+    height: auto;
+    margin: 0 auto;
   }
   .const {
     width: 50%;

@@ -16,8 +16,10 @@ code {
   color: white;
   font-family: cursive;
   letter-spacing: 2px;
-  padding-right: 5px;
+  padding-right: 1px;
   clear: both;
+  width: 90%;
+  margin: 0 auto;
 }
 body .footer {
   display: flex;

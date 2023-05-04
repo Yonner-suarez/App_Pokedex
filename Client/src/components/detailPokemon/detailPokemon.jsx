@@ -11,15 +11,13 @@ const DetailPokemmon = () => {
   const [detailPok, setDetailPok] = useState([]);
 
   useEffect(() => {
-    axios
-      .get(`/pokemons/${id}`)
-      .then(({ data }) => {
-        if (data) {
-          setDetailPok(data);
-        } else {
-          window.alert("There are no characters with that ID");
-        }
-      });
+    axios.get(`/pokemons/${id}`).then(({ data }) => {
+      if (data) {
+        setDetailPok(data);
+      } else {
+        window.alert("There are no characters with that ID");
+      }
+    });
   }, [id]);
 
   return (
@@ -39,7 +37,7 @@ const DetailPokemmon = () => {
                 <h4>NAME |{pok.name}</h4>
                 <h4>ATAQUE |{pok.ataque}</h4>
                 <h4>DEFENSA |{pok.defensa}</h4>
-                <h4>Tipo:</h4>
+                <h3>Tipo:</h3>
                 {pok.Types.map((tip) => {
                   return <h4>{tip.name}</h4>;
                 })}
