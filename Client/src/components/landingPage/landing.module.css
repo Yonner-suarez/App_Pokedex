@@ -187,9 +187,13 @@ h2 {
   }
   .contform {
     width: 90%;
-    margin-left: 6%;
+    margin-left: 2%;
   }
   .form {
+    margin-left: 0;
+  }
+  .const {
+    background-color: aqua;
     width: 100%;
   }
 }
