@@ -1,4 +1,4 @@
-import {
+const {
   GET_ALL_POKEMONS,
   NEXT_PAGE,
   GET_TYPES,
@@ -12,7 +12,13 @@ import {
   NEXT_TEN_PAGES,
   PREVIUS_PAGE_TEN,
   USER,
-} from "./types";
+} = require("./types");
+const {
+  newOrdenAlf,
+  newOrdenAtack,
+  filterTypes,
+  forOrigin,
+} = require("./logicReducer");
 
 const initialState = {
   pokemonsAll: [],
@@ -21,7 +27,7 @@ const initialState = {
   types: [],
   numPage: 1,
   search: [],
-  user:{}
+  user: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -59,79 +65,27 @@ const rootReducer = (state = initialState, action) => {
         types: action.payload,
       };
     case ORDER_ALF:
-      const newOrderAlf = state.pokemonsAll.sort((a, b) => {
-        if (a.name > b.name) {
-          return "Ascendente" === action.payload ? 1 : -1;
-        }
-        if (a.name < b.name) {
-          return "Descendente" === action.payload ? 1 : -1;
-        }
-        return 0;
-      });
-      const newOrderAlf1 = state.copyPokemonsAll.sort((a, b) => {
-        if (a.name > b.name) {
-          return "Ascendente" === action.payload ? 1 : -1;
-        }
-        if (a.name < b.name) {
-          return "Descendente" === action.payload ? 1 : -1;
-        }
-        return 0;
-      });
       return {
         ...state,
-        pokemonsAll: newOrderAlf,
-        copyPokemonsAll: newOrderAlf1,
+        pokemonsAll: newOrdenAlf(state, action),
+        copyPokemonsAll: newOrdenAlf(state, action),
       };
     case ORDER_ATACK:
-      const newOrder = state.pokemonsAll.sort((a, b) => {
-        if (a.ataque > b.ataque) {
-          return "Ascendente" === action.payload ? 1 : -1;
-        }
-        if (a.ataque < b.ataque) {
-          return "Descendente" === action.payload ? 1 : -1;
-        }
-        return 0;
-      });
-      const newOrder1 = state.copyPokemonsAll.sort((a, b) => {
-        if (a.ataque > b.ataque) {
-          return "Ascendente" === action.payload ? 1 : -1;
-        }
-        if (a.ataque < b.ataque) {
-          return "Descendente" === action.payload ? 1 : -1;
-        }
-        return 0;
-      });
       return {
         ...state,
-        pokemonsAll: newOrder,
-        copyPokemonsAll: newOrder1,
+        pokemonsAll: newOrdenAtack(state, action),
+        copyPokemonsAll: newOrdenAtack(state, action),
       };
     case FILTER:
-      const newFilter = state.copyPokemonsAll.filter((pokemons) => {
-        const filtrado = pokemons.Types.filter(
-          (ti) => ti.name === action.payload
-        );
-        if (filtrado.length) {
-          return pokemons;
-        } else {
-          return null;
-        }
-      });
-
       return {
         ...state,
-        pokemonsAll: newFilter,
+        pokemonsAll: filterTypes(state, action),
         numPage: 1,
       };
     case FILTER_FOR_API:
-      const filtradoApi = state.copyPokemonsAll.filter(
-        (pokemons) => !isNaN(pokemons.id)
-      );
-      const filtradoDbb = state.copyPokemonsAll.filter((po) => isNaN(po.id));
-
       return {
         ...state,
-        pokemonsAll: action.payload === "dbb" ? filtradoDbb : filtradoApi,
+        pokemonsAll: forOrigin(state, action),
       };
 
     case SEARCH_POK:
@@ -149,8 +103,8 @@ const rootReducer = (state = initialState, action) => {
     case USER:
       return {
         ...state,
-        user: action.payload
-      }
+        user: action.payload,
+      };
     default:
       return {
         ...state,
