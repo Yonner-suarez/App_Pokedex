@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon, Type } = require("../db");
+const { Pokemon, Type, User } = require("../db");
 
 require("dotenv").config();
 
@@ -65,31 +65,43 @@ const getPokemonsApi = async () => {
   return fullPok;
 };
 
-const getPokemonsByBdd = async () => {
+const getPokemonsByBdd = async (id) => {
   try {
-    const dbPok = await Pokemon.findAll({
-      include: {
-        model: Type,
-        through: {
-          attributes: [],
-        },
-      },
-    });
+    if (id) {
+      const buscaUser = await User.findOne({
+        where: { id: id },
+      });
 
-    if (dbPok.length === 0) return [];
+      if (buscaUser) {
+        const dbPok = await Pokemon.findAll({
+          where: { UserId: buscaUser.id },
+          include: {
+            model: Type,
+            through: {
+              attributes: [],
+            },
+          },
+        });
 
-    const busca = dbPok.map((pok) => pok.dataValues);
+        if (dbPok.length === 0) return [];
 
-    return busca;
+        const busca = dbPok.map((pok) => pok.dataValues);
+
+        return busca;
+      }
+
+      return [];
+    }
+    return [];
   } catch (error) {
     console.log(error);
   }
 };
 
-const getPokemons = async () => {
+const getPokemons = async (id) => {
   try {
     const poke = await getPokemonsApi();
-    const pokBdd = await getPokemonsByBdd();
+    const pokBdd = await getPokemonsByBdd(id);
 
     if (pokBdd.length === 0) {
       const soloApi = [...poke];

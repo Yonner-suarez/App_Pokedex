@@ -15,9 +15,8 @@ import { useState } from "react";
 const HomePage = () => {
   const [filter, setFilter] = useState(false);
 
-  const { pokemonsAll, numPage, types, copyPokemonsAll, search } = useSelector(
-    (state) => state
-  );
+  const { pokemonsAll, numPage, types, copyPokemonsAll, search, user } =
+    useSelector((state) => state);
 
   let inicio = (numPage - 1) * 12,
     hasta = numPage * 12;
@@ -31,9 +30,9 @@ const HomePage = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getPokemons());
+    user.id && dispatch(getPokemons(user.id));
     setFilter(false);
-  }, [dispatch]);
+  }, [user.id]);
 
   const onChangeAtack = (event) => {
     const { value } = event.target;

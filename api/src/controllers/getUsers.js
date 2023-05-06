@@ -4,7 +4,7 @@ const getUsers = async (userName, password) => {
   try {
     const user = await User.findOne({
       where: { userName: userName, password: password },
-      attributes: ["userName", "password"],
+      attributes: ["id", "userName", "password"],
     });
     if (user) {
       return { user, access: true };

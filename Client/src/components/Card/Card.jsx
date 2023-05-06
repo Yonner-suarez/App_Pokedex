@@ -18,13 +18,15 @@ const Card = ({ id, name, image, tipo }) => {
         </div>
         <h3>{name}</h3>
 
-        {tipo.map((tip) => {
-          return (
-            <div className={style.tipos}>
-              <h5> {tip.name}</h5>
-            </div>
-          );
-        })}
+        {tipo
+          ? tipo.map((tip) => {
+              return (
+                <div className={style.tipos}>
+                  <h5> {tip.name}</h5>
+                </div>
+              );
+            })
+          : null}
       </Link>
     </div>
   );

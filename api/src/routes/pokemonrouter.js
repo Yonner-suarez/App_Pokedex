@@ -11,11 +11,11 @@ const pokemonRouter = Router();
 //?Ruta para obtener AllPokemons o NamePokemon
 
 pokemonRouter.get("/", async (req, res) => {
-  const { name } = req.query;
+  const { name, id } = req.query;
 
-  if (!name) {
+  if (!name && id) {
     try {
-      const allPok = await getPokemons();
+      const allPok = await getPokemons(id);
 
       if (!allPok.length) {
         return res.status(404).json(`Algo salio mal`);
@@ -50,7 +50,6 @@ pokemonRouter.get("/:idPokemon", async (req, res) => {
 //?Ruta para agregar un Pokemon a la BDD
 pokemonRouter.post("/", async (req, res) => {
   const { pok, userName, password } = req.body;
-
 
   const { name, image, vida, ataque, defensa, velocidad, altura, peso, tipo } =
     pok;

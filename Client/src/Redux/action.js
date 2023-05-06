@@ -16,10 +16,10 @@ const {
   USER,
 } = require("./types");
 
-export const getPokemons = () => {
+export const getPokemons = (id) => {
   try {
     return async (dispatch) => {
-      const respuesta = await axios.get("/pokemons");
+      const respuesta = await axios.get(`/pokemons?id=${id}`);
       const { data } = respuesta;
       return dispatch({
         type: GET_ALL_POKEMONS,
