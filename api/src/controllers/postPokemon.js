@@ -34,7 +34,7 @@ const postPokemon = async (
       return { message: "Pokemon creado exitosamente" };
     }
   } catch (error) {
-    return error.message;
+    return error;
   }
 };
 

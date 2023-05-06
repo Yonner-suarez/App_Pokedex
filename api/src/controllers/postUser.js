@@ -6,14 +6,14 @@ const postUser = async (userName, password) => {
 
     if (buscaUser) return "User already exists";
 
-    const createUser = await User.create({
+    await User.create({
       userName,
       password,
     });
 
     return "You can start your adventure";
   } catch (error) {
-    return error.message;
+    return error;
   }
 };
 module.exports = postUser;

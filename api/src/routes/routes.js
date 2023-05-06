@@ -6,6 +6,7 @@ const pokemonRouter = require("./pokemonrouter");
 const router = Router();
 
 router.use("/pokemons", pokemonRouter);
+router.use("/user", routerUser);
 router.get("/types", async (req, res) => {
   try {
     const getType = await getTypes();
@@ -14,6 +15,5 @@ router.get("/types", async (req, res) => {
     res.status(404).json({ error: error.message });
   }
 });
-router.use("/user", routerUser);
 
 module.exports = router;

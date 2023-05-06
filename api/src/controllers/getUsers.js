@@ -12,7 +12,7 @@ const getUsers = async (userName, password) => {
       return { access: false };
     }
   } catch (error) {
-    return error.message;
+    return error;
   }
 };
 module.exports = getUsers;

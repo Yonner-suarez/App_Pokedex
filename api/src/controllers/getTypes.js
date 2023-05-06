@@ -16,7 +16,7 @@ const getTypes = async () => {
     }
     return await Type.findAll();
   } catch (error) {
-    return error.message;
+    return error;
   }
 };
 module.exports = getTypes;

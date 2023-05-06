@@ -94,7 +94,7 @@ const getPokemonsByBdd = async (id) => {
     }
     return [];
   } catch (error) {
-    console.log(error);
+    return error
   }
 };
 
@@ -111,7 +111,7 @@ const getPokemons = async (id) => {
     const allpoks = [...pokBdd, ...poke];
     return allpoks;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
