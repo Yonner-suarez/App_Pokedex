@@ -86,6 +86,7 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         pokemonsAll: forOrigin(state, action),
+        numPage: 1,
       };
 
     case SEARCH_POK:

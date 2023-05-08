@@ -30,6 +30,7 @@ function App() {
         `/user?userName=${userName}&password=${password}`
       );
       if (accesso.data.access) {
+        console.log(accesso.data.access === true);
         navigate("/homePage");
         dispatch(getUser(accesso.data.user));
       } else {

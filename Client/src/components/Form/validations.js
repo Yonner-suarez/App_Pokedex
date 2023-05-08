@@ -1,6 +1,8 @@
 const validations = (form, errors, setErrors) => {
+  //creo una variable en la cual gurde una copia de errors que me envian por paramentro
   const error = { ...errors };
 
+  //valido que el nombre del pokemon no venga vaicio, que sea una string, no tenga una logitud mayor a 15, si todas estas condiciones se cumplen se vaciará la prop name de error
   if (!form.name) {
     error.name = "Input the name";
   } else if (typeof form.name !== "string") {
@@ -11,6 +13,7 @@ const validations = (form, errors, setErrors) => {
     error.name = "";
   }
 
+  //de igual manera hago las siguientes validaciones para el resto del formulario
   if (!form.image) {
     error.image = "Input link of image";
   } else if (
@@ -76,6 +79,7 @@ const validations = (form, errors, setErrors) => {
   } else {
     error.tipo = "";
   }
+  // por ultimo seteo el estado errors pasandole la variable error
   setErrors(error);
 };
 

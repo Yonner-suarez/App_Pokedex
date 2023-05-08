@@ -6,22 +6,23 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const DetailPokemmon = () => {
+  //este componente funcional recibe por params un identificador
   const { id } = useParams();
 
+  //se implementa un estado local que guarde la info del pokemon en especifico
   const [detailPok, setDetailPok] = useState([]);
 
+  //cuando se monte el componente detail hara una peticion al back que traera un pokemon en especifico y guardara esa informacion en el estado local, si ocurre un error el cathc mandara un mensaje al usurio, y el cada vez que cambie el id el componente volvera a ejecutar la cb
   useEffect(() => {
-    axios.get(`/pokemons/${id}`).then(({ data }) => {
-      if (data) {
-        setDetailPok(data);
-      } else {
-        window.alert("There are no characters with that ID");
-      }
-    });
+    axios
+      .get(`/pokemons/${id}`)
+      .then(({ data }) => data && setDetailPok(data))
+      .catch((error) => alert(error.message));
   }, [id]);
 
   return (
     <div className={style.fullCont}>
+      {/*me preugnto si hay detailPok, si no hay redenrizo una imagen de carga hatsta que el estado local se haya cargado con la info y ahi si mapeo y renderizo la info*/}
       {!detailPok.length ? (
         <img
           src="https://c.tenor.com/XjV2_OLEE_EAAAAC/spin-loading.gif"

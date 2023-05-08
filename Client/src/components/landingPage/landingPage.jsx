@@ -14,7 +14,7 @@ const LandingPage = ({ login }) => {
 
   useEffect(() => {
     dispatch(getTypes());
-  }, []);
+  }, [dispatch]);
 
   const onChange = (event) => {
     const key = event.target.name,

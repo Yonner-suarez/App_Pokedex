@@ -5,8 +5,11 @@ import validations from "./validations";
 import { Link } from "react-router-dom";
 
 const Form = ({ postPok }) => {
+  //recibe la funcion que tendra la responsabilidad de hacer la peticion POST para agregar un pokemon
+  //traigo del estado global la propiedades types y user
   const { types, user } = useSelector((state) => state);
 
+  //creo un estado local que me servirá para almacenar la informacion que el usuario vaya ingresando en el formulario
   const [newPok, setNewPok] = useState({
     name: "",
     image: "",
@@ -18,6 +21,8 @@ const Form = ({ postPok }) => {
     peso: 0,
     tipo: [],
   });
+
+  //creo otro estado local que me serivirá para manejar los errores que el usurio ingrese, estas validaciones se realizaran en tiempo real
   const [errors, setErrors] = useState({
     name: "",
     image: "",
@@ -31,8 +36,11 @@ const Form = ({ postPok }) => {
   });
 
   const handleOnChange = (event) => {
+    //esta funcion se ejecutara para cada input y reconocera los valores que el usuario ingrese de tal manera que hagan un set al estado local con los valores que el usurio decidio ingresar
     const key = event.target.name,
       value = event.target.value;
+
+    //creo una variable auxiliar y me pregunto si el valor de evento es un numero si asi es lo guardo en la variable auxiliar para qque el estado global acepte como tipo de numero y no como string
     let aux;
     if (event.target.value.includes(Number(event.target.value))) {
       aux = Number(event.target.value);
@@ -40,8 +48,11 @@ const Form = ({ postPok }) => {
 
     setNewPok({
       ...newPok,
+      //si hay aux guardeme como valor ese auxiliar (numero) sino guardeme el valor en string.
       [key]: aux ? aux : value,
     });
+
+    //ejecuto la funcion de validación de los datos ingresados pasandole el seteo tal cual para evitar errores, ademas paso por paramentros el estado errors y el seteo del estado
     validations(
       {
         ...newPok,
@@ -53,13 +64,17 @@ const Form = ({ postPok }) => {
   };
 
   const onCheck = (event) => {
+    //para ingresar los valores de los tipos al que el usuario quiere relacionar su pokemon se jecuta esta funcion y me pregunto.....
     if (newPok.tipo.includes(event.target.value)) {
+      //si la prop tipo de newPok incluye el valor del evento filtro para que no se repitan los nombre de los tipos a relacionar y no ocurra un error en el back o en la bdd
       newPok.tipo = newPok.tipo.filter((name) => name !== event.target.value);
+      // seteo el estado local creando una copia del mismo pero donde la prop tipo sea igual al filtrado realizado
       setNewPok({
         ...newPok,
         tipo: newPok.tipo,
       });
     } else {
+      //si no hay tipos en el estado local en su prop tipo hacemos el mismo procedimiento pero esta vez la igualamos a un array que contenga lo que ya tenia el tipo del estado local y ademas le agregamos el valor del evento
       setNewPok({
         ...newPok,
         tipo: [...newPok.tipo, event.target.value],
@@ -68,6 +83,7 @@ const Form = ({ postPok }) => {
   };
 
   const handleSubmit = (event) => {
+    //esta funcion se ejecutará al momento de hacer click en el boto del submit, ejecutando la funcion reibida por parametro pasando el estado local y el usurio que inicio secion
     event.preventDefault();
     postPok(newPok, user);
   };
@@ -241,6 +257,8 @@ const Form = ({ postPok }) => {
           <span className={style.controlador}>{errors.tipo}</span>
         </div>
 
+
+        {/*para desabilitar el boton de submit y que el usuario no envie informacion que no corresponde valido si hay algun error en la props de errors, si hay errores el desabled es true si no hay errores será false*/}
         <button
           type="submit"
           disabled={

@@ -39,6 +39,7 @@ sequelize.models = Object.fromEntries(capsEntries);
 // Para relacionarlos hacemos un destructuring
 const { Pokemon, Type, User } = sequelize.models;
 
+//hago las relaciones correspondientes de muchos a mucho (belongsToMany) o de uno a muchos(hasMany y belongsTo)
 Pokemon.belongsToMany(Type, { through: "Pokemon_Type", timestamps: false });
 Type.belongsToMany(Pokemon, { through: "Pokemon_Type", timestamps: false });
 User.hasMany(Pokemon);
@@ -50,6 +51,6 @@ Pokemon.belongsTo(User);
 module.exports = {
   Pokemon,
   User,
-  Type, // para poder importar los modelos así: const { Product, User } = require('./db.js');
+  Type,
   conn: sequelize, // para importart la conexión { conn } = require('./db.js');
 };

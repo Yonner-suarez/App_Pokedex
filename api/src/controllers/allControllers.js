@@ -1,3 +1,5 @@
+//este handler o controller tiene la funcionalidad de requerir todos los controller´s que tienen la responsabilidad de manejar la logica de los datos pedidos en las rutas
+
 const { getPokemons, cachePokemons } = require("./getPokemons");
 const getPokemonsId = require("./getPokemonId");
 const postPokemon = require("./postPokemon");

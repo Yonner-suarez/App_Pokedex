@@ -1,6 +1,7 @@
 const { DataTypes } = require("sequelize");
 
 module.exports = (sequelize) => {
+  //tendra un identificador pero no universal sino autoincrementador estos tippos no tiene el riesgode pizarse con nada
   sequelize.define(
     "Type",
     {
