@@ -13,47 +13,49 @@ import Paginado from "../Paginado/Paginado";
 import { useState } from "react";
 
 const HomePage = () => {
-  const [filter, setFilter] = useState(false);
+  //traigo del estado global las props siguiente para su uso:
+  const { pokemonsAll, numPage, types, search, user } = useSelector(
+    (state) => state
+  );
 
-  const { pokemonsAll, numPage, types, copyPokemonsAll, search, user } =
-    useSelector((state) => state);
-
+  //creo las varibles donde indican el inicio y el final del corte de los pokemons por pagina
   let inicio = (numPage - 1) * 12,
     hasta = numPage * 12;
 
-  let catidadPages = Math.floor(pokemonsAll.length / 12);
+  //creo la variable que define la cantidad de paginas donde le divido la longitud de todos los pokemons respecto de la cantidad que se mostrará por pagina
+  let cantidadPages = Math.floor(pokemonsAll.length / 12);
 
+  // creo la variable donde hago el corte de todos los pokemons desde el inicio 0 hasta el final es decir 12
   let viewPokemons = pokemonsAll.slice(inicio, hasta);
-
-  let viewPokemons1 = copyPokemonsAll.slice(inicio, hasta);
 
   const dispatch = useDispatch();
 
+  //cunado se monta el componente me pregunto si hay user.id hago el dispatch de la action getPokemons pasandole por paramentro el id del usuario y se va a volver a motar el componente cuando el id del user cambie, ademas seteo el estado del filtro en falso para que no haya algun tipo de error
   useEffect(() => {
     user.id && dispatch(getPokemons(user.id));
-    setFilter(false);
   }, [user.id]);
 
   const onChangeAtack = (event) => {
+    //esta funcion se ejcutara cada vez que cambiemos el orden de ataque de los pokemons, despachará la accion orderAtak pasandole por parametro el value del evento
     const { value } = event.target;
     dispatch(orderAtack(value));
   };
   const onChangeAlf = (event) => {
+    //esta funcion se ejcutara cada vez que cambiemos el orden alfabetico de los pokemons, despachará la accion orderAlfabetic pasandole por parametro el value del evento
     const { value } = event.target;
     dispatch(orderAlfabetic(value));
   };
 
   const selectFilter = (event) => {
+    //esta funcion se ejcutara cada vez que cambiemos el filtrado por tipos de los pokemons, despachará la accion filterPokemons pasandole por parametro el value del evento
     const { value } = event.target;
-
     dispatch(filterPokemons(value));
-    setFilter(true);
   };
 
   const selectFilterBDD = (event) => {
+    //esta funcion se ejcutara cada vez que cambiemos el filtrado de los pokemons respecto de si son de la api externa o los pokemons creados, despachará la accion filterForApiOrBdd pasandole por parametro el value del evento
     const { value } = event.target;
     dispatch(filterForApiOrBdd(value));
-    setFilter(true);
   };
 
   return (
@@ -98,6 +100,7 @@ const HomePage = () => {
         <option value="DEFAULT" disable="true" className={style.option}>
           Filter for Types
         </option>
+
         {types.map((tipo) => {
           return (
             <option value={tipo.name} className={style.option}>
@@ -123,11 +126,8 @@ const HomePage = () => {
         </option>
       </select>
 
-      <Cards
-        allPokemons={filter ? viewPokemons : viewPokemons1}
-        search={search}
-      />
-      <Paginado catidadPages={catidadPages} />
+      <Cards allPokemons={viewPokemons} search={search} />
+      <Paginado catidadPages={cantidadPages} />
     </div>
   );
 };

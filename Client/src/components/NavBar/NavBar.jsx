@@ -9,17 +9,19 @@ const NavBar = () => {
   const dispatch = useDispatch();
 
   const onSearch = async (busca) => {
-    let number = Number(busca);
-
+    //esta funcion recibe por props el valor a buscar
     try {
-      if (!number) {
+      //si lo que hay en busca no es un numero hago la peticion al back con un peticion de tipo GET mandando el nombre por query
+      if (typeof busca !== "number") {
         const resp = await axios.get(`/pokemons?name=${busca}`);
         const { data } = resp;
+        //hago un dispatch de la accion search que va a guardar la info del pokemon encontrado
         dispatch(search(data));
       } else {
+        //si el dato de busca es un numero pando por params el id del pokemon a buscar
         const resp = await axios.get(`/pokemons/${busca}`);
         const { data } = resp;
-        console.log(resp.data);
+        //hago el mismo dispatch para guardar la info del pokemon
         dispatch(search(data));
       }
     } catch (error) {

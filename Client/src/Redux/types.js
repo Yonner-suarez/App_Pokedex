@@ -11,3 +11,5 @@ export const PREVIUS_PAGE = "PREVIUS_PAGE";
 export const NEXT_TEN_PAGES = "NEXT_TEN_PAGES";
 export const PREVIUS_PAGE_TEN = "PREVIUS_PAGE_TEN";
 export const USER = "USER";
+
+//estos son los diferentes types para reconocer la accion que se vaya hacer

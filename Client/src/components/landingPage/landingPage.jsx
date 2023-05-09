@@ -7,16 +7,19 @@ import { Link } from "react-router-dom";
 const LandingPage = ({ login }) => {
   const dispatch = useDispatch();
 
+  //este estado local esta para registrar la respuesta del usuario cuando hace un login
   const [log, setLog] = useState({
     userName: "",
     password: "",
   });
 
+  //cuando se monta el componente Landinng se despacha ña accion getTypes y se vuelve a montar el componente cunado el dispatch cambie
   useEffect(() => {
     dispatch(getTypes());
   }, [dispatch]);
 
   const onChange = (event) => {
+    //esta funcion se ejecuta cada vez que el los impusts cambian su valor seteando el estado local con la informacion prevista por el usuario y ese estado es pasado a la funcion login.
     const key = event.target.name,
       value = event.target.value;
 
@@ -77,6 +80,7 @@ const LandingPage = ({ login }) => {
           onClick={() => login(log.userName, log.password)}
           className={style.boton}
         />
+        {/*cuando se hace click al boton se ejecuta la funcion login pasada por parametros a esta funcion se le pasa el userName y la password del estado local*/}
       </div>
     </div>
   );
