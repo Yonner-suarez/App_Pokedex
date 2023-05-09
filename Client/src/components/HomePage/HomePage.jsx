@@ -10,7 +10,6 @@ import {
   filterForApiOrBdd,
 } from "../../Redux/action";
 import Paginado from "../Paginado/Paginado";
-import { useState } from "react";
 
 const HomePage = () => {
   //traigo del estado global las props siguiente para su uso:

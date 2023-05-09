@@ -151,7 +151,7 @@ h5 {
     margin-bottom: 2%;
   }
   .img {
-    width: 50%;
+    width: 100%;
   }
   .input {
     width: 20%;
@@ -180,5 +180,74 @@ h5 {
   }
   .controlador {
     font-size: medium;
+  }
+}
+@media screen and (max-width: 800px) {
+  .formulario {
+    width: 100%;
+    height: auto;
+  }
+  .form {
+    background-color: transparent;
+    width: 50%;
+  }
+  .contenedorImg {
+    width: 32%;
+  }
+  .input {
+    width: 20%;
+  }
+  .checkbox {
+    width: 100%;
+  }
+  .form .input {
+    width: 40%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .formulario {
+    width: 90%;
+    height: auto;
+  }
+  .form {
+    background-color: transparent;
+    width: 50%;
+  }
+  .contenedorImg {
+    width: 32%;
+  }
+  .input {
+    width: 20%;
+  }
+  .checkbox {
+    width: 100%;
+  }
+  .form .input {
+    width: 40%;
+    height: auto;
+  }
+}
+@media screen and (max-width: 1300px) {
+  .formulario {
+    width: 90%;
+    height: auto;
+  }
+  .form {
+    background-color: transparent;
+    width: 50%;
+  }
+  .contenedorImg {
+    width: 32%;
+  }
+  .input {
+    width: 20%;
+  }
+  .checkbox {
+    width: 100%;
+  }
+  .form .input {
+    width: 40%;
+    height: auto;
   }
 }

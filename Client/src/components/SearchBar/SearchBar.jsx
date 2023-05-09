@@ -1,6 +1,5 @@
 import style from "./searchbar.module.css";
 import { useState } from "react";
-import { useSelector } from "react-redux";
 
 const SearchBar = ({ onSearch }) => {
   //uso un estado global para guardar la informacion a buscar
