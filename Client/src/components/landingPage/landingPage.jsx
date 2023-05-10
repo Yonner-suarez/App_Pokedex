@@ -46,42 +46,41 @@ const LandingPage = ({ login }) => {
           alt=""
           className={style.logo}
         />
-
-        <div className={style.contform}>
-          <form className={style.form}>
-            <p>Welcome</p>
-            <br />
-            <input
-              type="text"
-              name="userName"
-              value={log.userName}
-              onChange={onChange}
-              placeholder="User Name"
-              className={style.input}
-            />
-            <br />
-            <input
-              type="text"
-              name="password"
-              value={log.password}
-              onChange={onChange}
-              placeholder="Password"
-              className={style.input}
-            />
-          </form>
-          <Link to="/singUp">
-            <button className={style.botonL}>SingUp</button>
-          </Link>
-        </div>
-
+      </div>
+      <div className={style.contform}>
+        <form className={style.form}>
+          <p>Welcome</p>
+          <br />
+          <input
+            type="text"
+            name="userName"
+            value={log.userName}
+            onChange={onChange}
+            placeholder="User Name"
+            className={style.input}
+          />
+          <br />
+          <input
+            type="text"
+            name="password"
+            value={log.password}
+            onChange={onChange}
+            placeholder="Password"
+            className={style.input}
+          />
+        </form>
+        <Link to="/singUp">
+          <button className={style.botonL}>SingUp</button>
+        </Link>
         <img
           src="https://th.bing.com/th/id/R.b75d698d329102dccb937325541c8b8c?rik=hvXz%2bwSXUi2tTQ&pid=ImgRaw&r=0"
           alt=""
           onClick={() => login(log.userName, log.password)}
           className={style.boton}
         />
-        {/*cuando se hace click al boton se ejecuta la funcion login pasada por parametros a esta funcion se le pasa el userName y la password del estado local*/}
       </div>
+
+      {/*cuando se hace click al boton se ejecuta la funcion login pasada por parametros a esta funcion se le pasa el userName y la password del estado local*/}
     </div>
   );
 };

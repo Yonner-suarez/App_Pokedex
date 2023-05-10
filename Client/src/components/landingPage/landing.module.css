@@ -3,10 +3,11 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  height: 80%;
+  align-items: center;
+  height: auto;
   width: 80%;
   margin: 0 auto;
-  margin-top: 3%;
+  margin-top: 10%;
 }
 .boton {
   display: flex;
@@ -33,7 +34,6 @@
   width: 700px;
   height: 400px;
   margin: 0;
-  margin-top: 100px;
 
   justify-content: center;
 }
@@ -41,8 +41,8 @@
 .imgcont .image {
   filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
   width: 600px;
-  height: 400px;
-  margin-top: 30px;
+  height: auto;
+  margin-top: 0 auto;
   transition-property: width, heigth;
   transition-duration: 1s;
   border-radius: 20px;
@@ -53,21 +53,24 @@ h2 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .logo {
-  width: 400px;
+  display: none;
+  /* width: 400px;
   height: 280px;
   margin-top: 5px;
   margin-bottom: 0;
   transition-property: width, heigth;
-  transition-duration: 1s;
+  transition-duration: 1s; */
 }
-.const {
-  background-color: transparent;
+/* .const {
+  background-color: aquamarine;
+  width: 40%;
+  height: 10%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   transition-property: width, heigth;
   transition-duration: 1s;
-}
+} */
 
 .form {
   background-color: transparent;
@@ -80,11 +83,16 @@ h2 {
 }
 .contform {
   background-color: rgba(255, 255, 255, 0.628);
+
   width: 300px;
   height: 280px;
-  margin-bottom: 0;
-  margin-top: -80px;
+
+  margin: 0 auto;
   border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .botonL {
   display: inline-flex;
@@ -159,16 +167,38 @@ h2 {
   }
 }
 @media screen and (max-width: 960px) {
+  .contenedor {
+    width: 80%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .contform {
+    width: 100%;
+    margin: 0 auto;
+    height: auto;
+  }
+  .form {
+    width: 100%;
+  }
   .image {
     display: none;
+    background-image: url("https://fsa.zobj.net/crop.php?r=RW4YrXVHjnm9tUPVe5xY1GkpH73nJnmEmHeNtQUV1xcmuWv6ZTc50XmwE2cTTJdWQKv5ZmgGxtmQwG02laoIWnDhpjlsl1zEUSzvrbS_jMm3Vo7gYzCR-q0UEGGfoLf7y-NDTPiQw7lvI49QKG71FB5ew-1aMZAxTfJRz-3_OiH_JXdDaF5pfFOkVmz6gzM_4Qq0w92OOrUajT4r");
   }
-  .imgcont {
-    display: none;
-  }
+}
+@media screen and (max-width: 600px) {
   .contenedor {
-    margin-top: 12%;
-    margin-left: 7%;
-    margin-bottom: 10%;
+    width: 90%;
+    margin: 0 auto;
+    margin-top: 10%;
+    height: auto;
+  }
+  .contform {
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
+  }
+  .image {
+    display: none;
   }
 }
 @media screen and (max-width: 450px) {
@@ -180,18 +210,23 @@ h2 {
   }
   .contenedor {
     width: 100%;
-    margin-top: 25%;
-    margin-bottom: 30%;
+    height: auto;
+    flex-direction: column;
+    margin: 0 auto;
   }
   .logo {
+    display: flex;
     width: 90%;
+    height: auto;
+    margin: 0 auto;
   }
   .contform {
     width: 90%;
-    margin-left: 2%;
+    flex-direction: column;
+    margin: 0 auto;
   }
   .form {
-    margin-left: 0;
+    width: 100%;
   }
   .const {
     background-color: transparent;
@@ -200,23 +235,13 @@ h2 {
   .boton {
     margin-left: 20%;
   }
-}
-@media screen and (max-width: 600px) {
-  .image {
-    display: none;
+  .const {
+    background-color: transparent;
+    width: 100%;
+    height: auto;
+    margin: 0 auto;
   }
-  .imgcont {
-    display: none;
-  }
-  .contenedor {
-    width: 90%;
-    margin-top: 23%;
-    margin-left: 3%;
-  }
-  .contform {
-    margin-left: 15%;
-  }
-  .logo {
-    margin-left: 15%;
+  .boton {
+    margin: 0 auto;
   }
 }
