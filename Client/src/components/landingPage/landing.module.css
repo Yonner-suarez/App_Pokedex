@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   height: auto;
-  width: 80%;
+  width: 50%;
   margin: 0 auto;
   margin-top: 10%;
 }
@@ -31,17 +31,17 @@
   background-color: transparent;
   display: inline-flex;
 
-  width: 700px;
-  height: 400px;
+  width: 80%;
+  height: auto;
   margin: 0;
 
   justify-content: center;
 }
 
-.imgcont .image {
+.image {
   filter: drop-shadow(3px 3px 3px rgba(76, 76, 76, 0.5));
-  width: 600px;
-  height: auto;
+  width: 40%;
+  height: 20%;
   margin-top: 0 auto;
   transition-property: width, heigth;
   transition-duration: 1s;
@@ -54,23 +54,7 @@ h2 {
 }
 .logo {
   display: none;
-  /* width: 400px;
-  height: 280px;
-  margin-top: 5px;
-  margin-bottom: 0;
-  transition-property: width, heigth;
-  transition-duration: 1s; */
 }
-/* .const {
-  background-color: aquamarine;
-  width: 40%;
-  height: 10%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  transition-property: width, heigth;
-  transition-duration: 1s;
-} */
 
 .form {
   background-color: transparent;
@@ -85,7 +69,7 @@ h2 {
   background-color: rgba(255, 255, 255, 0.628);
 
   width: 300px;
-  height: 280px;
+  height: auto;
 
   margin: 0 auto;
   border-radius: 20px;
@@ -145,25 +129,15 @@ h2 {
   border: none;
 }
 @media screen and (max-width: 1300px) {
-  .image {
-    display: none;
-  }
-  .imgcont {
-    background-image: url("https://th.bing.com/th/id/OIP.4dUWwOT2Vcm5a-k_QDneFgHaNK?pid=ImgDet&rs=1");
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 60%;
-    height: auto;
-    margin: 0 auto;
-  }
   .contenedor {
-    width: 90%;
-    height: 90%;
-    margin: 0 auto;
-  }
-  .const {
     width: 50%;
-    margin-right: 10%;
+    height: 50%;
+    margin: 0 auto;
+    margin-top: 15%;
+  }
+  .contform {
+    width: 50%;
+    height: auto;
   }
 }
 @media screen and (max-width: 960px) {
@@ -171,6 +145,7 @@ h2 {
     width: 80%;
     height: auto;
     margin: 0 auto;
+    margin-top: 10%;
   }
   .contform {
     width: 100%;
@@ -180,10 +155,6 @@ h2 {
   .form {
     width: 100%;
   }
-  .image {
-    display: none;
-    background-image: url("https://fsa.zobj.net/crop.php?r=RW4YrXVHjnm9tUPVe5xY1GkpH73nJnmEmHeNtQUV1xcmuWv6ZTc50XmwE2cTTJdWQKv5ZmgGxtmQwG02laoIWnDhpjlsl1zEUSzvrbS_jMm3Vo7gYzCR-q0UEGGfoLf7y-NDTPiQw7lvI49QKG71FB5ew-1aMZAxTfJRz-3_OiH_JXdDaF5pfFOkVmz6gzM_4Qq0w92OOrUajT4r");
-  }
 }
 @media screen and (max-width: 600px) {
   .contenedor {
@@ -191,6 +162,7 @@ h2 {
     margin: 0 auto;
     margin-top: 10%;
     height: auto;
+    margin-top: 15%;
   }
   .contform {
     width: 100%;
@@ -198,7 +170,12 @@ h2 {
     margin: 0 auto;
   }
   .image {
-    display: none;
+    width: 50%;
+    height: auto;
+  }
+  .imgcont {
+    width: 80%;
+    height: 20%;
   }
 }
 @media screen and (max-width: 450px) {
@@ -213,8 +190,10 @@ h2 {
     height: auto;
     flex-direction: column;
     margin: 0 auto;
+    margin-top: 20%;
   }
   .logo {
+    display: none;
     display: flex;
     width: 90%;
     height: auto;

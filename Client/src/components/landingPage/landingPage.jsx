@@ -32,7 +32,9 @@ const LandingPage = ({ login }) => {
     <div className={style.contenedor}>
       <div className={style.imgcont}>
         <img
-          src={"https://wallpaperaccess.com/full/3175040.jpg"}
+          src={
+            "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/1c102812-9165-4c99-86f2-48444a3cbc93/db09lz2-eb22b4e2-1ca6-4c77-81e7-c5f66d71de1b.png/v1/fill/w_670,h_1192,q_70,strp/pokemon_phone_wallpaper_by_fuwoops_db09lz2-pre.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTI4MCIsInBhdGgiOiJcL2ZcLzFjMTAyODEyLTkxNjUtNGM5OS04NmYyLTQ4NDQ0YTNjYmM5M1wvZGIwOWx6Mi1lYjIyYjRlMi0xY2E2LTRjNzctODFlNy1jNWY2NmQ3MWRlMWIucG5nIiwid2lkdGgiOiI8PTcyMCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.ZdQsbcXc4hVRb-JKsW1oVy51Ib7D2tBL_wL1_l98Sfs"
+          }
           alt=""
           className={style.image}
         />
@@ -49,6 +51,7 @@ const LandingPage = ({ login }) => {
       </div>
       <div className={style.contform}>
         <form className={style.form}>
+          <br />
           <p>Welcome</p>
           <br />
           <input
