@@ -7,14 +7,12 @@ import { useNavigate } from "react-router-dom";
 const SingUp = () => {
   const navigate = useNavigate();
 
-  //uso el estado local paraa guardar la info del nuevo usuario a crear
   const [user, setUser] = useState({
     userName: "",
     password: "",
     confirmPassword: "",
   });
 
-  //me apoyo en un estado local de errores para manejar y controlar la informacion que es ingresada
   const [errors, setErrors] = useState({
     userName: "",
     password: "",
@@ -22,7 +20,6 @@ const SingUp = () => {
   });
 
   const onChange = (event) => {
-    //esta funcion es ejecutada cuando se cambia el value de los imputsseteando el estado local con los values del event y los names de envent tambien
     const key = event.target.name;
     const value = event.target.value;
 
@@ -31,12 +28,10 @@ const SingUp = () => {
       [key]: value,
     });
 
-    //esta funcion es la encargada de rebisar que no haya errores en la informacion obtenida de los values
     validate({ ...user, [key]: value }, errors, setErrors);
   };
 
   const onSub = async (event) => {
-    //esta funcion tiene la responsabilidad de hacer un peticion con axios del tipo POST a /user y con un segundo parametro que corresponde al estado local
     try {
       const resp = await axios.post("/user", user);
 

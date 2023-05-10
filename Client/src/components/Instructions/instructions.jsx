@@ -1,5 +1,3 @@
-//este componente tien la repsosabilidad de dar al usuario una introduccion y acciones de las que puede disfrutar en la app
-
 import style from "./instructions.module.css";
 import { Link } from "react-router-dom";
 

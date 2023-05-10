@@ -4,7 +4,6 @@ import style from "./Card.module.css";
 const Card = ({ id, name, image, tipo }) => {
   return (
     <div className={style.contenedor}>
-      {/*creo un link en la etiquta div que me dirija al detail de cada carta*/}
       <Link to={`/detailPokemon/${id}`} className={style.link}>
         <div className={style.contenedor1}>
           <img
@@ -18,8 +17,6 @@ const Card = ({ id, name, image, tipo }) => {
           />
         </div>
         <h3>{name}</h3>
-
-        {/*me pregunto si hay tipo si lo hay hago un mapeo y renderizo el nombre del tipo en una etiqueta h5 sino que sea null*/}
         {tipo
           ? tipo.map((tip) => {
               return (

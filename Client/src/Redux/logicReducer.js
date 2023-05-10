@@ -1,6 +1,4 @@
 const newOrdenAlf = (state, action) => {
-
-  // esta funcion tiene la responsabilidad de ordenar de forma ascendente o descendete los pokemons teniendo en cuenta su nombre
   const newOrder = state.pokemonsAll.sort((a, b) => {
     if (a.name > b.name) {
       return "Ascendente" === action.payload ? 1 : -1;
@@ -13,7 +11,6 @@ const newOrdenAlf = (state, action) => {
   return newOrder;
 };
 const newOrdenAtack = (state, action) => {
-  // esta funcion tiene la responsabilidad de ordenar de forma ascendente o descendete los pokemons teniendo en cuenta su ataque
   const newOrder = state.pokemonsAll.sort((a, b) => {
     if (a.ataque > b.ataque) {
       return "Ascendente" === action.payload ? 1 : -1;
@@ -27,7 +24,6 @@ const newOrdenAtack = (state, action) => {
 };
 
 const filterTypes = (state, action) => {
-  // esta funcion tiene la responsabilidad de filtrar por tipos los pokemons
   const newFilter = state.copyPokemonsAll.filter((pokemons) => {
     const filtrado = pokemons.Types.filter((ti) => ti.name === action.payload);
     if (filtrado.length) {
@@ -40,7 +36,6 @@ const filterTypes = (state, action) => {
 };
 
 const forOrigin = (state, action) => {
-  // esta funcion tiene la responsabilidad de filtrar por origen los pokemons
   const filtradoApi = state.copyPokemonsAll.filter(
     (pokemons) => !isNaN(pokemons.id)
   );

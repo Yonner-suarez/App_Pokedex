@@ -1,5 +1,3 @@
-//este componente tiene la funcionalidad de importar todos los componnetes para limpiar un poco el código
-
 import Form from "../Form/form";
 import DetailPokemmon from "../detailPokemon/detailPokemon";
 import LandingPage from "../landingPage/landingPage";
