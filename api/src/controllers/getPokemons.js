@@ -118,8 +118,6 @@ module.exports = {
   cachePokemons,
 };
 
-
-
 //   .then((res) => {
 //         promises = res.map((url) => axios.get(url));
 //         return promises;

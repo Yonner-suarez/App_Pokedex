@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import style from "./Card.module.css";
 
-const Card = ({ id, name, image, tipo }) => {
+const Card = ({ id, name, image, vida, tipo }) => {
   return (
     <div className={style.contenedor}>
       <Link to={`/detailPokemon/${id}`} className={style.link}>
@@ -26,6 +26,7 @@ const Card = ({ id, name, image, tipo }) => {
               );
             })
           : null}
+        <h2>{vida}</h2>
       </Link>
     </div>
   );

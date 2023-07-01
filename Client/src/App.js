@@ -14,7 +14,8 @@ import axios from "axios";
 import { getUser } from "./Redux/action";
 import { useDispatch } from "react-redux";
 
-axios.defaults.baseURL = "https://apppokedex-production.up.railway.app";
+axios.defaults.baseURL = "https://backcer.onrender.com";
+//"https://apppokedex-production.up.railway.app";
 
 function App() {
   const dispatch = useDispatch();

@@ -47,6 +47,7 @@ const Cards = ({ allPokemons, search }) => {
               name={pok.name}
               tipo={pok.Types}
               image={pok.image}
+              vida={pok.vida}
             />
           );
         })
